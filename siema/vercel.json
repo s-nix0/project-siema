@@ -1,14 +1,14 @@
 {
   "builds": [
     {
-      "src": "siema/asgi.py",
+      "src": "siema/wsgi.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "siema/asgi.py"
+      "dest": "siema/wsgi.py"
     }
   ]
 }
