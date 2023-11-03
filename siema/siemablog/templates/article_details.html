@@ -1,0 +1,13 @@
+{% extends 'article_templates_base.html' %}
+
+{% block content %}
+
+<h1> {{ post.title }}</h1>
+<small>By: {{ post.author.first_name }} {{ post.author.last_name }}</small>
+<br>
+<hr>
+{% include post.body %}
+
+<a href="{% url 'home' %}" class="btn btn-secondary" role="button">Back to Home</a>
+
+{% endblock %}
