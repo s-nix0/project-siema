@@ -6,6 +6,7 @@ __pycache__
 *.pyc
 db.sqlite3
 media
+siema/whole.json
 
 # Environments
 .env
