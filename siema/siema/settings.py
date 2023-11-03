@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-8ri2^g-mdo64av_!+nfdyryteoqk1=gje15vilg=$6j&!^$3)g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
 
 # Application definition
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'siema.wsgi.application'
+WSGI_APPLICATION = 'siema.wsgi.app'
 
 
 # Database
