@@ -6,7 +6,6 @@ __pycache__
 *.pyc
 db.sqlite3
 media
-/siema/settings.py
 
 # Environments
 .env
