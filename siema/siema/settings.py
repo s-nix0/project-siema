@@ -12,6 +12,15 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+# Load variables from the .env file
+load_dotenv()
+
+db_name = os.environ.get('DBNAME')
+db_user = os.environ.get('DBUSER')
+db_password = os.environ.get('DBPASSWORD')
+db_host = os.environ.get('DBHOST')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -84,15 +93,28 @@ WSGI_APPLICATION = 'siema.wsgi.app'
 
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "verceldb",
-        "USER": "default",
-        "PASSWORD": "H0i6PCQtYwRh",
-        "HOST": "ep-red-smoke-30854751-pooler.us-east-1.postgres.vercel-storage.com",
-        "PORT": "5432",
-    }
+  'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': db_name,
+    'USER': db_user,
+    'PASSWORD': db_password,
+    'HOST': db_host,
+    'PORT': '5432',
+    'OPTIONS': {'sslmode': 'require'},
+  }
 }
+
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "verceldb",
+#         "USER": "default",
+#         "PASSWORD": "H0i6PCQtYwRh",
+#         "HOST": "ep-red-smoke-30854751-pooler.us-east-1.postgres.vercel-storage.com",
+#         "PORT": "5432",
+#     }
+# }
 
 
 # Password validation
@@ -130,7 +152,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

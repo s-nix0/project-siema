@@ -6,7 +6,7 @@ __pycache__
 *.pyc
 db.sqlite3
 media
-siema/whole.json
+whole.json
 
 # Environments
 .env
@@ -17,3 +17,6 @@ ENV/
 env.bak/
 venv.bak/
 /.idea/.gitignore
+
+.vs/*
+/siema/siemablog/migrations/*

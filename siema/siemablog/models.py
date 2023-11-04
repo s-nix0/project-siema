@@ -20,3 +20,23 @@ class Material(models.Model):
 
     def __str__(self):
         return str(self.pk) + ' | ' + str(self.author) + ' | ' + str(self.title) + ' | ' + str(self.detail)
+
+
+class Comic(models.Model):
+    title = models.CharField(max_length=255)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    detail = models.TextField(max_length=250)
+    body = models.TextField()
+
+    def __str__(self):
+        return str(self.pk) + ' | ' + str(self.author) + ' | ' + str(self.title) + ' | ' + str(self.detail)
+
+
+class Quiz(models.Model):
+    title = models.CharField(max_length=255)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    detail = models.TextField(max_length=250)
+    body = models.TextField()
+
+    def __str__(self):
+        return str(self.pk) + ' | ' + str(self.author) + ' | ' + str(self.title) + ' | ' + str(self.detail)
