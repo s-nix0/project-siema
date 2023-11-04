@@ -1,2 +1,2 @@
-# project-siema
+# Project SIEMA
 Sistem Edukasi Moral Anak
