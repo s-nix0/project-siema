@@ -4,9 +4,9 @@ __pycache__
 .vercel
 *.log
 *.pyc
+.idea/*
 db.sqlite3
 media
-whole.json
 
 # Environments
 .env
