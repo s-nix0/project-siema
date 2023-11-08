@@ -4,61 +4,75 @@
 
 {% block custom_css %}
 {% load static %}
-    <!-- Additional CSS for this page -->
+<!-- Additional CSS for this page -->
 <!--    <link rel="stylesheet" href="{% static 'home/css/styles.css' %}">-->
 {% endblock %}
 
 {% block content %}
-    <h1>Informasi</h1>
-    <ul>
-        {% for post in latest_article %}
-            <li>
-                <a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a><br>
-                <span class="author">{{ post.author.first_name }} {{ post.author.last_name }}</span><br>
-                <p class="body">{{ post.detail }}</p>
-            </li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'article-list' %}" class="show-more-button">Show More</a>
-    <br>
-    <br>
-    <h1>Materi</h1>
-    <ul>
-        {% for material in latest_material %}
-            <li>
-                <a href="{% url 'material-detail' material.pk %}">{{ material.title }}</a><br>
-                <span class="author">{{ material.author.first_name }} {{ material.author.last_name }}</span><br>
-                <p class="body">{{ material.detail }}</p>
-            </li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'comic-list' %}" class="show-more-button">Show More</a>
-    <h1>Komik</h1>
-    <ul>
-        {% for comic in latest_comic %}
-            <li>
-                <a href="{% url 'material-detail' material.pk %}">{{ comic.title }}</a><br>
-                <span class="author">{{ comic.author.first_name }} {{ comic.author.last_name }}</span><br>
-                <p class="body">{{ comic.detail }}</p>
-            </li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'comic-list' %}" class="show-more-button">Show More</a>
-    <br>
-    <h1>Quiz</h1>
-    <ul>
-        {% for quiz in latest_quiz %}
-            <li>
-                <a href="{% url 'material-detail' material.pk %}">{{ quiz.title }}</a><br>
-                <span class="author">{{ quiz.author.first_name }} {{ quiz.author.last_name }}</span><br>
-                <p class="body">{{ quiz.detail }}</p>
-            </li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'quiz-list' %}" class="show-more-button">Show More</a>
+<h1>Latest User Activity</h1>
+<p>Last Activity: {{ latest_user_activity.last_activity }}</p>
+<!--<p>Type: {{ latest_user_activity.activity_type }}</p>-->
+{% if latest_user_activity.activity_type == 'Materi' %}
+    <p>Link: <a href="{% url 'materi-detail' latest_user_activity.activity_level %}">{{ latest_user_activity.activity_title }}</a></p>
+    <p>Materi: {{ latest_user_activity.activity_level }}</p>
+{% elif latest_user_activity.activity_type == 'Komik' %}
+    <p>Link: <a href="{% url 'komik-detail' latest_user_activity.activity_level %}">{{ latest_user_activity.activity_title }}</a></p>
+    <p>Materi: {{ latest_user_activity.activity_level }}</p>
+{% elif latest_user_activity.activity_type == 'Quiz' %}
+    <p>Link: <a href="{% url 'kuis-detail' latest_user_activity.activity_level %}">{{ latest_user_activity.activity_title }}</a></p>
+    <p>Level: {{ latest_user_activity.activity_level }}</p>
+{% endif %}
+<br>
+<h1>Informasi</h1>
+<ul>
+    {% for post in latest_article %}
+    <li>
+        <a href="{% url 'artikel-detail' post.pk %}" class="article">{{ post.title }}</a><br>
+        <span class="author">{{ post.author.first_name }} {{ post.author.last_name }}</span><br>
+        <p class="body">{{ post.detail }}</p>
+    </li>
+    {% endfor %}
+</ul>
+<a class="show-more-button" href="{% url 'artikel-daftar' %}">Lebih lanjut</a>
+<br>
+<br>
+<h1>Materi</h1>
+<ul>
+    {% for material in latest_material %}
+    <li>
+        <a href="{% url 'materi-detail' material.level %}" class="material">{{ material.title }}</a><br>
+        <span class="author">{{ material.author.first_name }} {{ material.author.last_name }}</span><br>
+        <p class="body">{{ material.detail }}</p>
+        <p class="body">Materi: {{ material.level }}</p>
+    </li>
+    {% endfor %}
+</ul>
+<a class="show-more-button" href="{% url 'materi-daftar' %}">Lebih lanjut</a>
+<h1>Komik</h1>
+<ul>
+    {% for comic in latest_comic %}
+    <li>
+        <a href="{% url 'komik-detail' comic.level %}" class="comic">{{ comic.title }}</a><br>
+        <span class="author">{{ comic.author.first_name }} {{ comic.author.last_name }}</span><br>
+        <p class="body">{{ comic.detail }}</p>
+        <p class="body">Bagian: {{ comic.level }}</p>
+    </li>
+    {% endfor %}
+</ul>
+<a class="show-more-button" href="{% url 'komik-daftar' %}">Lebih lanjut</a>
+<br>
+<h1>Quiz</h1>
+<ul>
+    {% for quiz in latest_quiz %}
+    <li>
+        <a href="{% url 'kuis-detail' quiz.level %}" class="quiz">{{ quiz.title }}</a><br>
+        <span class="author">{{ quiz.author.first_name }} {{ quiz.author.last_name }}</span><br>
+        <p class="body">{{ quiz.detail }}</p>
+        <p class="body">Level: {{ quiz.level }}</p>
+    </li>
+    {% endfor %}
+</ul>
+<a class="show-more-button" href="{% url 'kuis-daftar' %}">Lebih lanjut</a>
 {% endblock %}
 
-{% block custom_js %}
-    <!-- Additional JS for this page -->
-    <script src="{% static 'home/js/scripts.js' %}"></script>
-{% endblock %}
+{% block custom_js %}{% endblock %}

@@ -2,18 +2,20 @@ from django.urls import path
 # from . import views
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import HomeView, ArticleListVew, ArticleDetailView, MaterialListVew, MaterialDetailView, ComicListVew, \
-    ComicDetailView, QuizListVew, QuizDetailView
+from django.contrib.auth.decorators import login_required
+from .views import HomeView, ArtikelListVew, ArtikelDetailView, MateriListVew, MateriDetailView, KomikListVew, \
+    KomikDetailView, KuisListVew, KuisDetailView
 
 urlpatterns = [
                   # path('', views.home, name="home"),
                   path('', HomeView.as_view(), name="home"),
-                  path('article/', ArticleListVew.as_view(), name='article-list'),
-                  path('material/', MaterialListVew.as_view(), name='material-list'),
-                  path('comic/', ComicListVew.as_view(), name='comic-list'),
-                  path('quiz/', QuizListVew.as_view(), name='quiz-list'),
-                  path('article/<int:pk>', ArticleDetailView.as_view(), name='article-detail'),
-                  path('material/<int:pk>', MaterialDetailView.as_view(), name='material-detail'),
-                  path('comic/<int:pk>', ComicDetailView.as_view(), name='comic-detail'),
-                  path('quiz/<int:pk>', QuizDetailView.as_view(), name='quiz-detail'),
+                  path('artikel/', ArtikelListVew.as_view(), name='artikel-daftar'),
+                  path('materi/', MateriListVew.as_view(), name='materi-daftar'),
+                  path('komik/', KomikListVew.as_view(), name='komik-daftar'),
+                  path('kuis/', KuisListVew.as_view(), name='kuis-daftar'),
+                  path('artikel/<int:pk>', ArtikelDetailView.as_view(), name='artikel-detail'),
+                  path('materi/<int:level>', login_required(MateriDetailView.as_view()), name='materi-detail'),
+                  path('komik/<int:level', login_required(KomikDetailView.as_view()), name='komik-detail'),
+                  path('kuis/<int:level>', login_required(KuisDetailView.as_view()), name='kuis-detail'),
+                  # path('update-user-activity/', update_user_activity, name='update-user-activity'),
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
