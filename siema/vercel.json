@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "projectname/wsgi.py",
+      "src": "siema/wsgi.py",
       "use": "@vercel/python",
       "config": { "maxLambdaSize": "30mb", "runtime": "python3.9" }
     },
