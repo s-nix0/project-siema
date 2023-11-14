@@ -23,7 +23,7 @@ from django.utils import timezone
 
 class UserActivity(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    last_activity = models.DateTimeField(default=timezone.now() + timezone.timedelta(hours=8))
+    last_activity = models.DateTimeField(default=timezone.now)
     activity_title = models.TextField(null=True)
     activity_type = models.CharField(max_length=50, null=True)  # Add a type field
     activity_level = models.IntegerField(null=True)  # Add a level field
@@ -40,8 +40,10 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     type = models.CharField(default='Post', max_length=255, editable=False)
     level = models.IntegerField(default=1, unique=True)
-    detail = models.TextField(max_length=250)
+    detail = models.TextField()
     body = models.TextField()
+    date_added = models.DateTimeField(default=timezone.now)
+    thumbnail = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return f"{self.pk} | {self.author} | {self.title} | {self.detail}"
@@ -52,8 +54,10 @@ class Material(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     type = models.CharField(default='Materi', max_length=255, editable=False)
     level = models.IntegerField(default=1, unique=True)
-    detail = models.TextField(max_length=250)
+    detail = models.TextField()
     body = models.TextField()
+    date_added = models.DateTimeField(default=timezone.now)
+    thumbnail = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return f"{self.pk} | {self.author} | Materi = {self.level} | {self.title} | {self.detail}"
@@ -67,8 +71,11 @@ class Comic(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     type = models.CharField(default='Komik', max_length=255, editable=False)
     level = models.IntegerField(default=1, unique=True)
-    detail = models.TextField(max_length=250)
+    detail = models.TextField()
     body = models.TextField()
+    date_added = models.DateTimeField(default=timezone.now)
+    thumbnail = models.TextField(blank=True, null=True)
+
 
     def __str__(self):
         return f"{self.pk} | {self.author} | Bagian = {self.level} | {self.title} | {self.detail}"
@@ -82,8 +89,10 @@ class Quiz(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     type = models.CharField(default='Quiz', max_length=255, editable=False)
     level = models.IntegerField(default=1, unique=True)
-    detail = models.TextField(max_length=250)
+    detail = models.TextField()
     body = models.TextField()
+    date_added = models.DateTimeField(default=timezone.now)
+    thumbnail = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return f"{self.pk} | {self.author} | Level = {self.level} | {self.title} | {self.detail}"

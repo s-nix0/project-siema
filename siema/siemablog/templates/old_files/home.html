@@ -13,13 +13,13 @@
 <p>Last Activity: {{ latest_user_activity.last_activity }}</p>
 <!--<p>Type: {{ latest_user_activity.activity_type }}</p>-->
 {% if latest_user_activity.activity_type == 'Materi' %}
-    <p>Link: <a href="{% url 'materi-detail' latest_user_activity.activity_level %}">{{ latest_user_activity.activity_title }}</a></p>
+    <p>Link: <a href="{% url 'material-detail' latest_user_activity.activity_level %}">{{ latest_user_activity.activity_title }}</a></p>
     <p>Materi: {{ latest_user_activity.activity_level }}</p>
 {% elif latest_user_activity.activity_type == 'Komik' %}
-    <p>Link: <a href="{% url 'komik-detail' latest_user_activity.activity_level %}">{{ latest_user_activity.activity_title }}</a></p>
+    <p>Link: <a href="{% url 'comic-detail' latest_user_activity.activity_level %}">{{ latest_user_activity.activity_title }}</a></p>
     <p>Materi: {{ latest_user_activity.activity_level }}</p>
 {% elif latest_user_activity.activity_type == 'Quiz' %}
-    <p>Link: <a href="{% url 'kuis-detail' latest_user_activity.activity_level %}">{{ latest_user_activity.activity_title }}</a></p>
+    <p>Link: <a href="{% url 'quiz-detail' latest_user_activity.activity_level %}">{{ latest_user_activity.activity_title }}</a></p>
     <p>Level: {{ latest_user_activity.activity_level }}</p>
 {% endif %}
 <br>
@@ -27,52 +27,52 @@
 <ul>
     {% for post in latest_article %}
     <li>
-        <a href="{% url 'artikel-detail' post.pk %}" class="article">{{ post.title }}</a><br>
+        <a href="{% url 'article-detail' post.pk %}" class="article">{{ post.title }}</a><br>
         <span class="author">{{ post.author.first_name }} {{ post.author.last_name }}</span><br>
         <p class="body">{{ post.detail }}</p>
     </li>
     {% endfor %}
 </ul>
-<a class="show-more-button" href="{% url 'artikel-daftar' %}">Lebih lanjut</a>
+<a class="show-more-button" href="{% url 'article-list' %}">Lebih lanjut</a>
 <br>
 <br>
 <h1>Materi</h1>
 <ul>
     {% for material in latest_material %}
     <li>
-        <a href="{% url 'materi-detail' material.level %}" class="material">{{ material.title }}</a><br>
+        <a href="{% url 'material-detail' material.level %}" class="material">{{ material.title }}</a><br>
         <span class="author">{{ material.author.first_name }} {{ material.author.last_name }}</span><br>
         <p class="body">{{ material.detail }}</p>
         <p class="body">Materi: {{ material.level }}</p>
     </li>
     {% endfor %}
 </ul>
-<a class="show-more-button" href="{% url 'materi-daftar' %}">Lebih lanjut</a>
+<a class="show-more-button" href="{% url 'material-list' %}">Lebih lanjut</a>
 <h1>Komik</h1>
 <ul>
     {% for comic in latest_comic %}
     <li>
-        <a href="{% url 'komik-detail' comic.level %}" class="comic">{{ comic.title }}</a><br>
+        <a href="{% url 'comic-detail' comic.level %}" class="comic">{{ comic.title }}</a><br>
         <span class="author">{{ comic.author.first_name }} {{ comic.author.last_name }}</span><br>
         <p class="body">{{ comic.detail }}</p>
         <p class="body">Bagian: {{ comic.level }}</p>
     </li>
     {% endfor %}
 </ul>
-<a class="show-more-button" href="{% url 'komik-daftar' %}">Lebih lanjut</a>
+<a class="show-more-button" href="{% url 'comic-list' %}">Lebih lanjut</a>
 <br>
 <h1>Quiz</h1>
 <ul>
     {% for quiz in latest_quiz %}
     <li>
-        <a href="{% url 'kuis-detail' quiz.level %}" class="quiz">{{ quiz.title }}</a><br>
+        <a href="{% url 'quiz-detail' quiz.level %}" class="quiz">{{ quiz.title }}</a><br>
         <span class="author">{{ quiz.author.first_name }} {{ quiz.author.last_name }}</span><br>
         <p class="body">{{ quiz.detail }}</p>
         <p class="body">Level: {{ quiz.level }}</p>
     </li>
     {% endfor %}
 </ul>
-<a class="show-more-button" href="{% url 'kuis-daftar' %}">Lebih lanjut</a>
+<a class="show-more-button" href="{% url 'quiz-list' %}">Lebih lanjut</a>
 {% endblock %}
 
 {% block custom_js %}{% endblock %}

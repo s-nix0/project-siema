@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="./styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="search-container">
+    {% if query %}
+    <div class="search-result-heading">
+      <h2>Hasil Pencarian Untuk '{{ query }}'</h2>
+    </div>
+    {% elif not query %}
+    <div class="search-result-heading">
+      <h2>Masukkan Kata Kunci yang Ingin di Cari</h2>
+    </div>
+    {% endif %}
+
+    <div class="search-form">
+      <form method="get" action="{% url 'search' %}">
+        <div class="form-field">
+          {{ form.query }}
+        </div>
+        <div class="form-field">
+          <button type="submit">Search</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="results-container">
+      {% if article_results %}
+      <div class="result-category">
+        <h3>Informasi</h3>
+        <div class="result-items">
+          {% for post in article_results %}
+          <div class="result-item">
+            <a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a>
+            <p class="body">{{ post.detail }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if material_results %}
+      <div class="result-category">
+        <h3>Materi</h3>
+        <div class="result-items">
+          {% for material in material_results %}
+          <div class="result-item">
+            <a href="{% url 'material-detail' level=material.level %}">{{ material.title }}</a>
+            <p class="body">{{ material.detail }}</p>
+            <p class="body">Materi: {{ material.level }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if comic_results %}
+      <div class="result-category">
+        <h3>Komik</h3>
+        <div class="result-items">
+          {% for comic in comic_results %}
+          <div class="result-item">
+            <a href="{% url 'comic-detail' level=comic.level %}">{{ comic.title }}</a>
+            <p class="body">{{ comic.detail }}</p>
+            <p class="body">Bagian: {{ comic.level }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if quiz_results %}
+      <div class="result-category">
+        <h3>Kuis</h3>
+        <div class="result-items">
+          {% for quiz in quiz_results %}
+          <div class="result-item">
+            <a href="{% url 'quiz-detail' level=quiz.level %}">{{ quiz.title }}</a>
+            <p class="body">{{ quiz.detail }}</p>
+            <p class="body">Level: {{ quiz.level }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if not query and not article_results and not material_results and not comic_results and not quiz_results %}
+      <div class="no-results">
+        <p></p>
+      </div>
+      {% elif not article_results and not material_results and not comic_results and not quiz_results %}
+      <div class="no-results">
+        <p>Tidak ada hasil yang ditemukan.</p>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</body>
+</html>

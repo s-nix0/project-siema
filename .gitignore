@@ -1,6 +1,7 @@
 /siema/db.sqlite3
 __pycache__
 
+.backupdb
 .vercel
 *.log
 *.pyc
@@ -16,7 +17,10 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-/.idea/.gitignore
+/.idea/*
 
 .vs/*
 /siema/siemablog/migrations/*
+/siema/akun/migrations/*
+/siema/siemablog/templates/old_files/
+test.html

@@ -17,9 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+admin.site.site_header = 'SIEMA Administration'  # default: "Django Administration"
+admin.site.index_title = 'Site Administration'  # default: "Site administration"
+admin.site.site_title = 'SIEMA Site Admin'  # default: "Django site admin"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('siemablog.urls')),
-    path('authenticate/', include('django.contrib.auth.urls')),
-    path('authenticate/', include('authenticate.urls')),
+    # path('akun/', include('django.contrib.auth.urls')),
+    path('akun/', include('akun.urls')),
 ]

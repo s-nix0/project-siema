@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIEMA Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'login/css/styles.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="preloader">
+      <div class="loader"></div>
+      <div class="loading-text">Sedang Memuat ...</div>
+    </div>
+    <div class="container">
+      <div class="user-icon">
+        <img src="{% static 'login/img/profile.png' %}" alt="profile" class="profile-img" />
+      </div>
+      <div class="text-user">Login Pengguna</div>
+      <form action="" method="POST">
+         {% csrf_token %}
+
+        <!-- Username input -->
+        <div class="form-outline">
+          <input
+            class="form-control"
+            id="username"
+            name="username"
+            placeholder="Nama Pengguna"
+            type="text"
+          />
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline">
+          <input
+            class="form-control"
+            id="password"
+            name="password"
+            placeholder="Kata Sandi"
+            type="password"
+          />
+        </div>
+        <div class="text-message">
+          {% if messages %}
+            {% for message in messages %}
+              <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        </div>
+        <br />
+        <div class="text-submit">
+          <input type="submit" value="Masuk" />
+        </div>
+      </form>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-text">
+            Dengan masuk, Anda menyetujui
+            <a href="{% url 'tos' %}">Ketentuan Layanan</a> dan
+            <a href="{% url 'privacy-policy' %}">Kebijakan Privasi</a>
+            kami.
+        </div>
+    </div>
+    <script src="{% static 'login/js/scripts.js' %}"></script>
+  </body>
+</html>

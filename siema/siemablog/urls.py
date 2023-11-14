@@ -1,21 +1,24 @@
 from django.urls import path
-# from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.decorators import login_required
-from .views import HomeView, ArtikelListVew, ArtikelDetailView, MateriListVew, MateriDetailView, KomikListVew, \
-    KomikDetailView, KuisListVew, KuisDetailView
+from .views import HomeView, DashboardView, SearchView, ArticleListVew, ArticleDetailView, MaterialListVew, \
+    MaterialDetailView, ComicListVew, ComicDetailView, QuizListVew, QuizDetailView, ToS, PrivacyPolicy
 
 urlpatterns = [
                   # path('', views.home, name="home"),
                   path('', HomeView.as_view(), name="home"),
-                  path('artikel/', ArtikelListVew.as_view(), name='artikel-daftar'),
-                  path('materi/', MateriListVew.as_view(), name='materi-daftar'),
-                  path('komik/', KomikListVew.as_view(), name='komik-daftar'),
-                  path('kuis/', KuisListVew.as_view(), name='kuis-daftar'),
-                  path('artikel/<int:pk>', ArtikelDetailView.as_view(), name='artikel-detail'),
-                  path('materi/<int:level>', login_required(MateriDetailView.as_view()), name='materi-detail'),
-                  path('komik/<int:level', login_required(KomikDetailView.as_view()), name='komik-detail'),
-                  path('kuis/<int:level>', login_required(KuisDetailView.as_view()), name='kuis-detail'),
+                  path('dashboard/', DashboardView.as_view(), name='dashboard'),
+                  path('cari/', SearchView.as_view(), name='search'),
+                  path('artikel/', ArticleListVew.as_view(), name='article-list'),
+                  path('materi/', MaterialListVew.as_view(), name='material-list'),
+                  path('komik/', ComicListVew.as_view(), name='comic-list'),
+                  path('kuis/', QuizListVew.as_view(), name='quiz-list'),
+                  path('artikel/<int:pk>', ArticleDetailView.as_view(), name='article-detail'),
+                  path('materi/<int:level>', login_required(MaterialDetailView.as_view()), name='material-detail'),
+                  path('komik/<int:level>', login_required(ComicDetailView.as_view()), name='comic-detail'),
+                  path('kuis/<int:level>', login_required(QuizDetailView.as_view()), name='quiz-detail'),
+                  path('tos/', ToS.as_view(), name='tos'),
+                  path('privacy-policy', PrivacyPolicy.as_view(), name='privacy-policy'),
                   # path('update-user-activity/', update_user_activity, name='update-user-activity'),
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
