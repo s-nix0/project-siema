@@ -1,0 +1,280 @@
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+  font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgb(14, 14, 14);
+  /* background-color: #e9e9e9; */
+  max-width: 37.5rem;
+}
+
+/* Preloader Styles */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  backdrop-filter: blur(10rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease; /* Add transition for opacity */
+  z-index: 9999;
+}
+
+/* Hide the preloader by setting opacity to 0 */
+.preloader.hidden {
+  opacity: 0;
+  pointer-events: none; /* Prevent interaction while hidden */
+}
+
+.loading-text {
+  text-align: center;
+  font-weight: bold;
+  margin: 1rem;
+}
+
+.loader {
+  border: 8px solid #9ecdff;
+  border-top: 8px solid #007bff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s ease infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, border-radius 0.2s ease-in-out;
+}
+
+a:active {
+  transform: scale(0.95); /* Menyesuaikan transformasi sesuai keinginan Anda */
+  /* background-color: #aaaaaa; */
+  /* border-radius: 20rem; */
+}
+
+.he1 {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.he2 {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.he3 {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.he4 {
+  font-weight: 400;
+  font-size: 0.90rem;
+}
+
+.he5 {
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+.p1 {
+  font-weight: 400;
+  font-size: 0.75rem;
+}
+
+header {
+  padding: 1rem;
+  border-radius: 0 0 0.7rem 0.7rem;
+  margin: 0 0.5rem 0 0.5rem;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto;
+  height: (100vh - 3.5rem);
+  margin-bottom: 3.5rem;
+  transition: opacity 0.25s; /* Apply a transition effect to the opacity property */
+}
+
+.information-section {
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-information {
+  text-align: center;
+  padding: 1rem 1rem 0 1rem;
+}
+
+.search-form form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.form-field {
+  margin-right: 1rem; /* Jarak antar elemen form */
+}
+
+.form-field:last-child {
+  margin-right: 0; /* Hapus margin kanan pada elemen terakhir */
+}
+
+form {
+  display: flex;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: 2px solid #4066ff;
+  transition: border-color 0.2s ease;
+  outline: none;
+}
+
+input[type="text"]:focus {
+  border: 2px solid #ff9d5b;
+  min-width: 1rem;
+}
+
+button {
+  background-color: #4066ff; /* Warna latar tombol */
+  color: #fff; /* Warna teks tombol */
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease; /* Animasi perubahan warna */
+}
+
+button:hover {
+  background-color: #2a55ff; /* Warna latar saat hover */
+}
+
+button:active {
+  background-color: #ff9d5b; /* Warna latar saat hover */
+}
+
+.information {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  padding: 0.5rem;
+  margin: 0 0.5rem 0 0.5rem;
+  /* min-height: 12rem; */
+  /* background-color: #ffffff; */
+  /* border-radius: 0.5rem; */
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+}
+
+.information::-webkit-scrollbar {
+  height: 0.5rem;
+}
+
+.information::-webkit-scrollbar-thumb {
+  background-color: #3a5eeb; /* Warna thumb (bagian yang dapat digerakkan) */
+  border-radius: 6px; /* Sudut pembulatan pada thumb */
+}
+
+.information::-webkit-scrollbar-track {
+  background-color: none; /* Warna track (bagian yang tidak dapat digerakkan) */
+  border-radius: 8px; /* Sudut pembulatan pada track */
+}
+
+.category-text {
+  margin-bottom: 1rem;
+}
+
+.post {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  background-color: #ffffff;
+  margin-right: 1rem;
+  border-radius: 0.5rem;
+}
+
+.no-post {
+  margin-bottom: 1rem;
+}
+
+.post:last-child {
+  margin-right: 0;
+}
+
+.post img {
+  border-radius: inherit;
+  width: 7rem;
+  height: 7rem;
+  margin: 0 1rem 0.5rem 0;
+  flex-shrink: 0;
+  background-color: #3a5eeb;
+}
+
+.post div {
+  text-align: justify;
+  margin-bottom: 0.5rem;
+}
+
+.no-post {
+  text-align: center;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 37.5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 1rem 1rem 0 0;
+  height: 3.5rem;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.15);
+}
+
+.footer a {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
