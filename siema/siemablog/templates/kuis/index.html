@@ -53,9 +53,9 @@
         </div>
         <br />
         <div class="information">
-          {% if comic %}
-            {% for item in comic|dictsort:'level' %}
-            <a href="{% url 'kuis-detail' item.level %}" class="post">
+          {% if quiz %}
+            {% for item in quiz|dictsort:'level' %}
+            <a href="{% url 'quiz-detail' item.level %}" class="post">
               {% if item.thumbnail %}
                   <img class="post-image" src="{% static item.thumbnail %}" />
               {% else %}

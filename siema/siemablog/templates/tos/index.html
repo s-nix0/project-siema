@@ -6,46 +6,52 @@
     <title>Ketentuan Layanan - [Your Education App]</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'terms/css/styles.css' %}" />
+    <script src="{% static 'terms/js/scripts.js' %}" async></script>
   </head>
   <body>
-    <header>
-      <h1>[Your Education App]</h1>
-      <p>Ketentuan Layanan</p>
-    </header>
+    <div class="preloader">
+      <div class="loader"></div>
+      <div class="loading-text">Sedang Memuat ...</div>
+    </div>
+    <div class="main-content">
+      <header>
+        <h1>[Your Education App]</h1>
+        <p>Ketentuan Layanan</p>
+      </header>
+      <section>
+        <h2><strong><span>Ketentuan Layanan untuk []</span></strong></h2>
+        <p><span>Terakhir diperbarui: [Tanggal]</span></p>
+        <p><span>Selamat datang di [Aplikasi Pendidikan Anda]! Sebelum Anda mulai menggunakan layanan kami, harap baca Ketentuan Layanan (&quot;Ketentuan&quot;) ini dengan seksama. Dengan mengakses atau menggunakan aplikasi kami, Anda setuju untuk terikat oleh Ketentuan ini. Jika Anda tidak setuju dengan Ketentuan ini, mohon untuk tidak menggunakan aplikasi kami.</span></p>
+        <p><span><strong>1. Kesepakatan atas Ketentuan</strong></span></p>
+        <p><span>Dengan menggunakan [Aplikasi Pendidikan Anda], Anda setuju untuk mematuhi dan terikat secara hukum oleh Ketentuan ini. Jika Anda tidak setuju, mohon untuk tidak menggunakan aplikasi kami.</span></p>
+        <p><span><strong>2. Kebijakan Privasi</strong></span></p>
+        <p><span>Privasi Anda penting bagi kami. Silakan tinjau Kebijakan Privasi kami [tautan ke Kebijakan Privasi] untuk memahami bagaimana kami mengumpulkan, menggunakan, dan mengungkapkan informasi.</span></p>
+        <p><span><strong>3. Penggunaan Cookie</strong></span></p>
+        <p><span>Kami menggunakan cookie untuk meningkatkan pengalaman pengguna Anda, meningkatkan kinerja aplikasi kami, dan menyediakan konten yang dipersonalisasi. Dengan menggunakan [Aplikasi Pendidikan Anda], Anda menyetujui penggunaan cookie sesuai dengan Kebijakan Privasi dan Ketentuan ini.</span></p>
+        <p><span><strong>4. Informasi Cookie</strong></span></p>
+        <p><span>Cookie adalah potongan kecil data yang disimpan di perangkat Anda. Kami menggunakan cookie untuk tujuan berikut:</span></p>
+        <ol style="list-style-type: lower-alpha;">
+            <li><span>Kinerja: Untuk menganalisis dan mengoptimalkan kinerja aplikasi kami.</span></li>
+            <li><span>Manajemen Sesi: Untuk mengelola sesi pengguna dan memberikan pengalaman yang mulus.</span></li>
+            <li><span>Keamanan: Untuk meningkatkan keamanan aplikasi kami.</span></li>
+        </ol>
+        <p><span><strong>5. Tanggung Jawab Pengguna</strong></span></p>
+        <ol style="list-style-type: lower-alpha;">
+            <li><span>Anda bertanggung jawab untuk menjaga kerahasiaan informasi akun Anda.</span></li>
+            <li><span>Anda setuju untuk tidak terlibat dalam aktivitas apa pun yang dapat membahayakan keamanan [Aplikasi Pendidikan Anda].</span></li>
+        </ol>
+        <p><span><strong>6. Penghentian</strong></span></p>
+        <p><span>Kami berhak untuk menghentikan atau menangguhkan akses Anda ke [Aplikasi Pendidikan Anda] kapan saja, tanpa pemberitahuan, dengan alasan apa pun.</span></p>
+        <p><span><strong>7. Perubahan Ketentuan</strong></span></p>
+        <p><span>Kami dapat memperbarui Ketentuan ini dari waktu ke waktu. Anda bertanggung jawab untuk meninjau Ketentuan ini secara berkala. Jika Anda terus menggunakan [Aplikasi Pendidikan Anda] setelah ada perubahan, berarti Anda menerima Ketentuan yang telah diperbarui.</span></p>
+        <p><br></p>
+        <p>Jika Anda memiliki pertanyaan atau masalah tentang Ketentuan Layanan dan Kebijakan Privasi ini, silakan hubungi kami di [contact@email.com].</p>
+        <p>Dengan menggunakan [Aplikasi Pendidikan Anda], Anda mengakui bahwa Anda telah membaca, memahami, dan setuju untuk terikat oleh Ketentuan Layanan dan Kebijakan Privasi. Terima kasih telah memilih [Aplikasi Pendidikan Anda]!</p>
+      </section>
 
-    <section>
-      <h2><strong><span>Ketentuan Layanan untuk []</span></strong></h2>
-      <p><span>Terakhir diperbarui: [Tanggal]</span></p>
-      <p><span>Selamat datang di [Aplikasi Pendidikan Anda]! Sebelum Anda mulai menggunakan layanan kami, harap baca Ketentuan Layanan (&quot;Ketentuan&quot;) ini dengan seksama. Dengan mengakses atau menggunakan aplikasi kami, Anda setuju untuk terikat oleh Ketentuan ini. Jika Anda tidak setuju dengan Ketentuan ini, mohon untuk tidak menggunakan aplikasi kami.</span></p>
-      <p><span><strong>1. Kesepakatan atas Ketentuan</strong></span></p>
-      <p><span>Dengan menggunakan [Aplikasi Pendidikan Anda], Anda setuju untuk mematuhi dan terikat secara hukum oleh Ketentuan ini. Jika Anda tidak setuju, mohon untuk tidak menggunakan aplikasi kami.</span></p>
-      <p><span><strong>2. Kebijakan Privasi</strong></span></p>
-      <p><span>Privasi Anda penting bagi kami. Silakan tinjau Kebijakan Privasi kami [tautan ke Kebijakan Privasi] untuk memahami bagaimana kami mengumpulkan, menggunakan, dan mengungkapkan informasi.</span></p>
-      <p><span><strong>3. Penggunaan Cookie</strong></span></p>
-      <p><span>Kami menggunakan cookie untuk meningkatkan pengalaman pengguna Anda, meningkatkan kinerja aplikasi kami, dan menyediakan konten yang dipersonalisasi. Dengan menggunakan [Aplikasi Pendidikan Anda], Anda menyetujui penggunaan cookie sesuai dengan Kebijakan Privasi dan Ketentuan ini.</span></p>
-      <p><span><strong>4. Informasi Cookie</strong></span></p>
-      <p><span>Cookie adalah potongan kecil data yang disimpan di perangkat Anda. Kami menggunakan cookie untuk tujuan berikut:</span></p>
-      <ol style="list-style-type: lower-alpha;">
-          <li><span>Kinerja: Untuk menganalisis dan mengoptimalkan kinerja aplikasi kami.</span></li>
-          <li><span>Manajemen Sesi: Untuk mengelola sesi pengguna dan memberikan pengalaman yang mulus.</span></li>
-          <li><span>Keamanan: Untuk meningkatkan keamanan aplikasi kami.</span></li>
-      </ol>
-      <p><span><strong>5. Tanggung Jawab Pengguna</strong></span></p>
-      <ol style="list-style-type: lower-alpha;">
-          <li><span>Anda bertanggung jawab untuk menjaga kerahasiaan informasi akun Anda.</span></li>
-          <li><span>Anda setuju untuk tidak terlibat dalam aktivitas apa pun yang dapat membahayakan keamanan [Aplikasi Pendidikan Anda].</span></li>
-      </ol>
-      <p><span><strong>6. Penghentian</strong></span></p>
-      <p><span>Kami berhak untuk menghentikan atau menangguhkan akses Anda ke [Aplikasi Pendidikan Anda] kapan saja, tanpa pemberitahuan, dengan alasan apa pun.</span></p>
-      <p><span><strong>7. Perubahan Ketentuan</strong></span></p>
-      <p><span>Kami dapat memperbarui Ketentuan ini dari waktu ke waktu. Anda bertanggung jawab untuk meninjau Ketentuan ini secara berkala. Jika Anda terus menggunakan [Aplikasi Pendidikan Anda] setelah ada perubahan, berarti Anda menerima Ketentuan yang telah diperbarui.</span></p>
-      <p><br></p>
-      <p>Jika Anda memiliki pertanyaan atau masalah tentang Ketentuan Layanan dan Kebijakan Privasi ini, silakan hubungi kami di [contact@email.com].</p>
-      <p>Dengan menggunakan [Aplikasi Pendidikan Anda], Anda mengakui bahwa Anda telah membaca, memahami, dan setuju untuk terikat oleh Ketentuan Layanan dan Kebijakan Privasi. Terima kasih telah memilih [Aplikasi Pendidikan Anda]!</p>
-    </section>
-
-    <footer>
-      <p>&copy; 2023 [Your Education App]. All rights reserved.</p>
-    </footer>
+      <footer>
+        <p>&copy; 2023 [Your Education App]. All rights reserved.</p>
+      </footer>
+    </div>
   </body>
 </html>

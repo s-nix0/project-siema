@@ -14,8 +14,8 @@ body {
   padding: 0;
   font-family: "Roboto", sans-serif;
   font-size: 1.3rem;
-  color: #4b4b4b;
-  background-color: rgba(244, 246, 250, 255);
+  color: #313131;
+  background-color: #c2c2c2;
   box-sizing: border-box; /* Include padding and borders in the element's total width and height */
 }
 
@@ -79,6 +79,7 @@ body {
   font-weight: 600;
   margin-top: 1rem;
   margin-bottom: 4rem;
+  padding: 0.5rem;
 }
 
 .text-message {

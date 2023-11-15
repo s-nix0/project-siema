@@ -23,3 +23,4 @@ venv.bak/
 /siema/siemablog/migrations/*
 /siema/akun/migrations/*
 /siema/siemablog/templates/old_files/*
+/old_vercel.json

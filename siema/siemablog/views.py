@@ -235,7 +235,7 @@ class QuizListVew(ListView):
 
 class QuizDetailView(DetailView):
     model = Quiz
-    template_name = 'test.html'
+    template_name = 'kuis/list/kuis_detail.html'
 
     def get_object(self, queryset=None):
         level = self.kwargs['level']
@@ -259,8 +259,8 @@ class QuizDetailView(DetailView):
 
 
 class ToS(TemplateView):
-    template_name = 'tos.html'
+    template_name = 'tos/index.html'
 
 
 class PrivacyPolicy(TemplateView):
-    template_name = 'privacy-policy.html'
+    template_name = 'privacy_policy/index.html'

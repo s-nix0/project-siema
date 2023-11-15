@@ -12,17 +12,34 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
       rel="stylesheet"
     />
+    <style>
+      .background {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: url("{% static 'dasbor/img/bg1.png' %}");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.1;
+      filter: blur(2rem);
+      z-index: -2;
+    }
+  </style>
   </head>
   <body>
     <div class="preloader">
       <div class="loader"></div>
       <div class="loading-text">Sedang Memuat ...</div>
     </div>
+    <div class="background"></div>
     <div class="container">
       <div class="user-icon">
         <img src="{% static 'login/img/profile.png' %}" alt="profile" class="profile-img" />
       </div>
-      <div class="text-user">Login Pengguna</div>
+      <div class="text-user">Login Pengguna SIEMA</div>
       <form action="" method="POST">
          {% csrf_token %}
 

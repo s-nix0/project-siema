@@ -6,45 +6,51 @@
     <title>Kebijakan Privasi - [Your Education App]</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'terms/css/styles.css' %}" />
+    <script src="{% static 'terms/js/scripts.js' %}" async></script>
   </head>
   <body>
-    <header>
-      <h1>[Your Education App]</h1>
-      <p>Kebijakan Privasi</p>
-    </header>
+    <div class="preloader">
+      <div class="loader"></div>
+      <div class="loading-text">Sedang Memuat ...</div>
+    </div>
+    <div class="main-content">
+      <header>
+        <h1>[Your Education App]</h1>
+        <p>Kebijakan Privasi</p>
+      </header>
+      <section>
+        <h2><strong>Kebijakan Privasi untuk [Aplikasi Pendidikan Anda]</strong></h2>
+          <p>Terakhir diperbarui: [Tanggal]</p>
+          <p>Selamat datang di [Aplikasi Pendidikan Anda]! Kebijakan Privasi ini menguraikan bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi Anda ketika Anda menggunakan aplikasi kami. Dengan menggunakan [Aplikasi Pendidikan Anda], Anda menyetujui praktik-praktik yang dijelaskan dalam Kebijakan Privasi ini.</p>
+          <p><strong>1. Informasi yang Kami Kumpulkan</strong></p>
+          <ol>
+              <li>Informasi Pribadi: Saat Anda membuat akun, kami dapat mengumpulkan informasi pribadi seperti nama, alamat email, dan detail lain yang relevan.</li>
+              <li>Informasi Penggunaan: Kami mengumpulkan informasi tentang bagaimana Anda berinteraksi dengan [Aplikasi Pendidikan Anda], termasuk halaman yang dikunjungi, dan statistik penggunaan lainnya.</li>
+          </ol>
+          <p><strong>2. Cara Kami Menggunakan Informasi Anda</strong></p>
+          <ol style="list-style-type: lower-alpha;">
+              <li>Personalisasi: Kami menggunakan informasi Anda untuk mempersonalisasi pengalaman Anda dan menyediakan konten yang relevan dengan minat Anda.</li>
+              <li>Komunikasi: Kami dapat menggunakan alamat email Anda untuk mengirimi Anda pembaruan penting, pengumuman, dan informasi lain yang terkait dengan [Aplikasi Pendidikan Anda].</li>
+              <li>Analisis: Kami menganalisis perilaku pengguna untuk meningkatkan kinerja dan kegunaan [Aplikasi Pendidikan Anda].</li>
+          </ol>
+          <p><strong>3. Berbagi Informasi</strong></p>
+          <ol style="list-style-type: lower-alpha;">
+              <li>Layanan Pihak Ketiga: Kami dapat menggunakan layanan pihak ketiga untuk meningkatkan fungsionalitas [Aplikasi Pendidikan Anda]. Layanan ini mungkin memiliki kebijakan privasinya sendiri, dan penggunaan Anda atas layanan tersebut tunduk pada kebijakan tersebut.</li>
+              <li>Kepatuhan Hukum: Kami dapat mengungkapkan informasi Anda jika diwajibkan oleh hukum atau sebagai tanggapan atas permintaan hukum.</li>
+          </ol>
+          <p><strong>4. Keamanan Data</strong></p>
+          <p>Kami menerapkan langkah-langkah keamanan untuk melindungi informasi Anda dari akses, pengungkapan, perubahan, dan penghancuran yang tidak sah. Meskipun kami berkomitmen untuk menjaga keamanan data Anda, perlu diingat bahwa tidak ada sistem keamanan yang dapat menjamin sepenuhnya terhadap risiko peretasan atau kejadian di luar kendali kami.</p>
+          <p>Kami mengajak Anda untuk berpartisipasi aktif dalam menjaga keamanan akun Anda dan memberi tahu kami jika Anda mencurigai adanya aktivitas yang mencurigakan atau tidak sah pada akun Anda.</p>
+          <p><strong>5. Perubahan pada Kebijakan Privasi</strong></p>
+          <p>Kami berhak untuk memperbarui Kebijakan Privasi ini kapan saja. Perubahan akan segera berlaku setelah kami mempublikasikan kebijakan yang telah diperbarui di [Aplikasi Pendidikan Anda].</p>
+          <p><br></p>
+          <p>Jika Anda memiliki pertanyaan atau masalah tentang Ketentuan Layanan dan Kebijakan Privasi ini, silakan hubungi kami di [contact@email.com].</p>
+          <p>Dengan menggunakan [Aplikasi Pendidikan Anda], Anda mengakui bahwa Anda telah membaca, memahami, dan setuju untuk terikat oleh Ketentuan Layanan dan Kebijakan Privasi. Terima kasih telah memilih [Aplikasi Pendidikan Anda]!</p>
+      </section>
 
-    <section>
-      <h2><strong>Kebijakan Privasi untuk [Aplikasi Pendidikan Anda]</strong></h2>
-        <p>Terakhir diperbarui: [Tanggal]</p>
-        <p>Selamat datang di [Aplikasi Pendidikan Anda]! Kebijakan Privasi ini menguraikan bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi Anda ketika Anda menggunakan aplikasi kami. Dengan menggunakan [Aplikasi Pendidikan Anda], Anda menyetujui praktik-praktik yang dijelaskan dalam Kebijakan Privasi ini.</p>
-        <p><strong>1. Informasi yang Kami Kumpulkan</strong></p>
-        <ol>
-            <li>Informasi Pribadi: Saat Anda membuat akun, kami dapat mengumpulkan informasi pribadi seperti nama, alamat email, dan detail lain yang relevan.</li>
-            <li>Informasi Penggunaan: Kami mengumpulkan informasi tentang bagaimana Anda berinteraksi dengan [Aplikasi Pendidikan Anda], termasuk halaman yang dikunjungi, dan statistik penggunaan lainnya.</li>
-        </ol>
-        <p><strong>2. Cara Kami Menggunakan Informasi Anda</strong></p>
-        <ol style="list-style-type: lower-alpha;">
-            <li>Personalisasi: Kami menggunakan informasi Anda untuk mempersonalisasi pengalaman Anda dan menyediakan konten yang relevan dengan minat Anda.</li>
-            <li>Komunikasi: Kami dapat menggunakan alamat email Anda untuk mengirimi Anda pembaruan penting, pengumuman, dan informasi lain yang terkait dengan [Aplikasi Pendidikan Anda].</li>
-            <li>Analisis: Kami menganalisis perilaku pengguna untuk meningkatkan kinerja dan kegunaan [Aplikasi Pendidikan Anda].</li>
-        </ol>
-        <p><strong>3. Berbagi Informasi</strong></p>
-        <ol style="list-style-type: lower-alpha;">
-            <li>Layanan Pihak Ketiga: Kami dapat menggunakan layanan pihak ketiga untuk meningkatkan fungsionalitas [Aplikasi Pendidikan Anda]. Layanan ini mungkin memiliki kebijakan privasinya sendiri, dan penggunaan Anda atas layanan tersebut tunduk pada kebijakan tersebut.</li>
-            <li>Kepatuhan Hukum: Kami dapat mengungkapkan informasi Anda jika diwajibkan oleh hukum atau sebagai tanggapan atas permintaan hukum.</li>
-        </ol>
-        <p><strong>4. Keamanan Data</strong></p>
-        <p>Kami menerapkan langkah-langkah keamanan untuk melindungi informasi Anda dari akses, pengungkapan, perubahan, dan penghancuran yang tidak sah. Meskipun kami berkomitmen untuk menjaga keamanan data Anda, perlu diingat bahwa tidak ada sistem keamanan yang dapat menjamin sepenuhnya terhadap risiko peretasan atau kejadian di luar kendali kami.</p>
-        <p>Kami mengajak Anda untuk berpartisipasi aktif dalam menjaga keamanan akun Anda dan memberi tahu kami jika Anda mencurigai adanya aktivitas yang mencurigakan atau tidak sah pada akun Anda.</p>
-        <p><strong>5. Perubahan pada Kebijakan Privasi</strong></p>
-        <p>Kami berhak untuk memperbarui Kebijakan Privasi ini kapan saja. Perubahan akan segera berlaku setelah kami mempublikasikan kebijakan yang telah diperbarui di [Aplikasi Pendidikan Anda].</p>
-        <p><br></p>
-        <p>Jika Anda memiliki pertanyaan atau masalah tentang Ketentuan Layanan dan Kebijakan Privasi ini, silakan hubungi kami di [contact@email.com].</p>
-        <p>Dengan menggunakan [Aplikasi Pendidikan Anda], Anda mengakui bahwa Anda telah membaca, memahami, dan setuju untuk terikat oleh Ketentuan Layanan dan Kebijakan Privasi. Terima kasih telah memilih [Aplikasi Pendidikan Anda]!</p>
-    </section>
-
-    <footer>
-      <p>&copy; 2023 [Your Education App]. All rights reserved.</p>
-    </footer>
+      <footer>
+        <p>&copy; 2023 [Your Education App]. All rights reserved.</p>
+      </footer>
+    </div>
   </body>
 </html>
