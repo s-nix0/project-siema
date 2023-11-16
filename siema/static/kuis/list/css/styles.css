@@ -19,6 +19,19 @@ body {
   /* background-color: #e9e9e9; */
   max-width: 37.5rem;
   background-color: rgba(0, 0, 0, 0.808);
+  overflow: auto;
+}
+
+body::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #3a5eeb; /* Warna thumb (bagian yang dapat digerakkan) */
+}
+
+body::-webkit-scrollbar-track {
+  background-color: none; /* Warna track (bagian yang tidak dapat digerakkan) */
 }
 
 /* Preloader Styles */
@@ -73,6 +86,10 @@ a {
   text-decoration: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, border-radius 0.2s ease-in-out;
+}
+
+a:hover {
+  transform: scale(1.05);
 }
 
 a:active {
@@ -152,10 +169,11 @@ button {
   border: none;
   border-radius: 2.5rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
-  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: scale 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 button:active {
+  transform: scale(0.95);
   background-color: #9462ad;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.7);
 }

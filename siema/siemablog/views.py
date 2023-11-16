@@ -44,26 +44,6 @@ from itertools import chain
 
 class HomeView(TemplateView):
     template_name = 'test.html'
-    # context_object_name = 'latest_article'
-    #
-    # def get_queryset(self):
-    #     return Post.objects.order_by('-pk')[:1]
-    #
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['latest_material'] = Material.objects.order_by('-pk')[:1]
-    #     context['latest_comic'] = Comic.objects.order_by('-pk')[:1]
-    #     context['latest_quiz'] = Quiz.objects.order_by('-pk')[:1]
-    #
-    #     # Try to get the latest user activity or provide a default value
-    #     try:
-    #         latest_user_activity = UserActivity.objects.latest('last_activity')
-    #     except UserActivity.DoesNotExist:
-    #         latest_user_activity = None
-    #
-    #     context['latest_user_activity'] = latest_user_activity
-    #
-    #     return context
 
 
 class SearchView(View):
@@ -141,7 +121,10 @@ class DashboardView(LoginRequiredMixin, ListView):
 
         # Get the latest user activity for the current user or provide a default value
         try:
-            latest_user_activity = UserActivity.objects.filter(user=self.request.user).latest('last_activity')
+            latest_user_activity = UserActivity.objects.filter(
+                user=self.request.user,
+                activity_type__in=['Materi', 'Komik', 'Quiz']
+            ).latest('last_activity')
         except UserActivity.DoesNotExist:
             latest_user_activity = None
 

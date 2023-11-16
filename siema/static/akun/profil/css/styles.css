@@ -84,15 +84,14 @@ a {
 }
 
 a:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 a:active {
-  transform: scale(0.95); /* Menyesuaikan transformasi sesuai keinginan Anda */
+  transform: scale(0.97); /* Menyesuaikan transformasi sesuai keinginan Anda */
   /* background-color: #aaaaaa; */
   /* border-radius: 20rem; */
 }
-
 
 .he1 {
   font-weight: 700;
@@ -111,6 +110,11 @@ a:active {
 
 .he4 {
   font-weight: 400;
+  font-size: 0.90rem;
+}
+
+.he5 {
+  font-weight: 400;
   font-size: 0.8rem;
 }
 
@@ -119,53 +123,24 @@ a:active {
   font-size: 0.75rem;
 }
 
-/*
-.background {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-image: url("../dashbor/img/bg.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.5;
-  filter: blur(2rem);
-  z-index: -2;
-} */
-
-/* .plane {
-  position: fixed;
-  top: 7rem;
-  right: 0;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: white;
-  border-radius: 1rem;
-  z-index: -1;
-  width: 37.5rem;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
-} */
-
 header {
   padding: 1rem;
-  text-align: left;
   border-radius: 0 0 0.7rem 0.7rem;
   margin: 0 0.5rem 0 0.5rem;
   background-color: #ffffff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
 }
 
 .main-content {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   overflow-x: auto;
   height: (100vh - 3.5rem);
   margin-bottom: 3.5rem;
   transition: opacity 0.25s; /* Apply a transition effect to the opacity property */
-  z-index: 1;
 }
 
 .information-section {
@@ -173,29 +148,23 @@ header {
   border-radius: 0.5rem;
   margin: 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 1;
 }
 
 .header-information {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  text-align: center;
   padding: 1rem 1rem 0 1rem;
 }
 
 .information {
   display: flex;
-  flex-direction: row;
-  overflow-x: auto;
-  align-items: start;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  /* padding: 1rem; */
-  padding: 1rem 1rem;
+  margin: 0 0.5rem 0 0.5rem;
   /* min-height: 12rem; */
   /* background-color: #ffffff; */
   /* border-radius: 0.5rem; */
   /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
-  z-index: 1;
 }
 
 .information::-webkit-scrollbar {
@@ -215,12 +184,9 @@ header {
 .post {
   display: flex;
   flex-direction: column;
-  align-items: left;
-  background-color: #ffffff;
-  max-width: 7rem;
-  margin: 0 1rem 0.5rem 0;
+  align-items: center;
+  margin-right: 1rem;
   border-radius: 0.5rem;
-  z-index: 7;
 }
 
 .no-post {
@@ -228,92 +194,94 @@ header {
 }
 
 .post:last-child {
-  margin: 0 0 0.5rem 0;
+  margin-right: 0;
 }
 
 .post img {
   border-radius: inherit;
-  width: 7rem;
-  height: 7rem;
-  margin-bottom: 0.5rem;
+  width: 10rem;
+  height: 10rem;
   flex-shrink: 0;
-  background-color: #3a5eeb;
 }
 
 .post div {
-  flex-shrink: 0;
+  text-align: justify;
   margin-bottom: 0.5rem;
 }
 
-
-.header-categories {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 1rem 1rem 0 1rem;
+.break-line {
+  border-radius: 5rem;
+  border: 2px solid #a6b8ff; /* Example border style */
+  margin: 1rem 0.5rem; /* Example margin to give some space around the line */
 }
 
-.categories {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1.2rem; /* Adjust this value as needed */
-  margin: 1rem 0.75rem 4rem 0.75rem;
-  color: #ffffff;
-}
-
-/* Define a list of background colors */
-.categories a:nth-child(1) {
-  background-color: #3b6cff;
-}
-
-.categories a:nth-child(2) {
-  background-color: #2cc897;
-}
-
-.categories a:nth-child(3) {
-  background-color: #fbb41a;
-}
-
-.categories a:nth-child(4) {
-  background-color: #fe5f5c;
-}
-
-.categories a:nth-child(5) {
-  background-color: #34afff;
-}
-
-.categories a:nth-child(6) {
-  background-color: #33a3ca;
-}
-
-.categories a:nth-child(7) {
-  background-color: #ca33a3;
-}
-
-.cat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
+.feature-section {
+  background-color: #f2f5fc;
   border-radius: 0.5rem;
+  margin: 0.5rem;
+  padding: 1rem 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-
-.cat a {
-  width: 4rem;
-  height: 4rem;
+.feature {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 0.5rem;
+  /* min-height: 12rem; */
+  /* background-color: #ffffff; */
+  /* border-radius: 0.5rem; */
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
 }
 
-.cat img {
-  margin-top: 0.5rem;
-  width: 4rem;
-  height: 4rem;
+.feature::-webkit-scrollbar {
+  height: 0.5rem;
 }
 
-.cat-title {
-  margin: 0.5rem;
+.feature::-webkit-scrollbar-thumb {
+  background-color: #3a5eeb; /* Warna thumb (bagian yang dapat digerakkan) */
+  border-radius: 6px; /* Sudut pembulatan pada thumb */
+}
+
+.feature::-webkit-scrollbar-track {
+  background-color: none; /* Warna track (bagian yang tidak dapat digerakkan) */
+  border-radius: 8px; /* Sudut pembulatan pada track */
+}
+
+.feature-bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin: 1rem 0 0.5rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
+.feature-detail {
+  display: flex;
+  align-items: center;
+}
+
+.feature-image {
+  width: 3rem;
+  height: 3rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  flex-shrink: 0;
+  background-color: #dee4ff;
+  border-radius: 0.5rem;
+}
+
+.feature-title {
+  margin-left: 1rem;
+  text-align: left;
+}
+
+.click-image {
+  width: 4rem;
+  height: 4rem;
 }
 
 .footer {

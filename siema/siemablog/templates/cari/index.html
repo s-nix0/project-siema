@@ -21,7 +21,7 @@
         z-index: -2;
       }
     </style>
-    <link rel="stylesheet" href="{% static 'search/css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'cari/css/styles.css' %}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -39,11 +39,10 @@
     <div class="loading-text">Sedang Memuat ...</div>
   </div>
   <div class="background"></div>
-  <!-- <div class="plane"></div> -->
   <header>
-    <a href="{% url 'dashboard' %}" class="back-button h3">Kembali</a>
+    <!-- <a href="{% url 'dashboard' %}" class="back-button h3">Kembali</a> -->
     <div class="title he1">Pencarian SIEMA</div>
-    <div class="back-button h3" style="visibility: hidden;">Kembali</div>
+    <!-- <div class="back-button h3" style="visibility: hidden;">Kembali</div> -->
   </header>
   <br />
   <div class="main-content">
@@ -160,10 +159,10 @@
     <a href="{% url 'search' %}">
       <box-icon name="search" color="rgba(58, 94, 235, 255)"></box-icon>
     </a>
-    <a href="#">
+    <a href="{% url 'profile' %}">
       <box-icon name="user" color="rgba(58, 94, 235, 255)"></box-icon>
     </a>
   </div>
-  <script src="{% static 'komik/js/scripts.js' %}"></script>
+  <script src="{% static 'cari/js/scripts.js' %}"></script>
 </body>
 </html>
