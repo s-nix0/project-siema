@@ -111,8 +111,15 @@ form {
   flex-direction: column;
 }
 
+.hidden-label p {
+  display: none;
+  height: 0;
+  width: 0;
+}
+
 .form-outline {
   margin-bottom: 1.25rem;
+  z-index: 1;
 }
 
 .form-control {
@@ -163,6 +170,7 @@ input[type="submit"]:active {
   justify-content: center;
   text-align: center;
   line-height: 1rem;
+  z-index: 0;
 }
 
 .footer-text {

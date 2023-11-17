@@ -20,24 +20,30 @@ window.addEventListener("load", function () {
 	document.body.classList.add("zoomIn");
 });
 
+// var refererBeforeSubmit = document.getElementById('referer-before-submit').value;
+document.addEventListener("DOMContentLoaded", function () {
+	var modal = document.getElementById("feedback-modal");
+	var span = document.querySelector(".close");
 
-var modal = document.getElementById("feedback-modal");
-var span = document.getElementsByClassName("close")[0];
-var refererBeforeSubmit = document.getElementById('referer-before-submit').value;
+	if (modal && span) {
+		// Menampilkan modal
+		modal.style.opacity = '1';
+		modal.style.visibility = 'visible';
 
-if (modal) {
-	modal.style.opacity = '1';
-	modal.style.visibility = 'visible';
+		// Menutup modal ketika tombol close diklik
+		span.onclick = closeModal;
 
-	span.onclick = function () {
-    modal.style.opacity = '0';
-    modal.style.visibility = 'hidden';
-	};
+		// Menutup modal ketika di luar modal diklik
+		window.onclick = function (event) {
+			if (event.target === modal) {
+				closeModal();
+			}
+		};
+	}
 
-	window.onclick = function (event) {
-		if (event.target === modal) {
-			modal.style.opacity = '0';
-			modal.style.visibility = 'hidden';
-		}
-	};
-};
+	function closeModal() {
+		// Menutup modal
+		modal.style.opacity = '0';
+		modal.style.visibility = 'hidden';
+	}
+});

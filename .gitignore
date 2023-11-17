@@ -24,3 +24,7 @@ venv.bak/
 /siema/akun/migrations/*
 /siema/siemablog/templates/old_files/*
 /old_vercel.json
+__pycache__/
+*.pyc
+*.pyo
+*.pyd

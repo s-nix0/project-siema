@@ -86,6 +86,12 @@ form {
   flex-direction: column;
 }
 
+.hidden-label p:nth-child(5) {
+  display: none;
+  height: 0;
+  width: 0;
+}
+
 form p {
   display: flex;
   flex-direction: column;
@@ -185,6 +191,7 @@ button:active {
   float: right;
   font-size: 28px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .close:hover,

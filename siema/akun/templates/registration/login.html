@@ -65,12 +65,19 @@
           />
         </div>
         <div class="text-message">
+          <div style="font-size: 1rem; font-weight: 400; padding: 1rem 2rem;">Anda akan secara otomatis terdaftar jika akun Anda belum terdaftar dalam daftar kami.</div>
+        </div>
+        <div class="form-outline hidden-label">
+          {{ form.as_p }}
+        </div>
+        <div class="text-message">
           {% if messages %}
             {% for message in messages %}
               <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
             {% endfor %}
           {% endif %}
         </div>
+
         <br />
         <div class="text-submit">
           <input type="submit" value="Masuk" />

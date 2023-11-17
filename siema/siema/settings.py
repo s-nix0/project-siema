@@ -23,9 +23,10 @@ db_password = os.environ.get('DBPASSWORD')
 db_host = os.environ.get('DBHOST')
 secret_key = os.environ.get('SECRET_KEY')
 debug = os.environ.get('DEBUG', False) == 'True'
-recaptcha_private_key = os.environ.get('RECAPTCHA_PRIVATE_KEY')
-recaptcha_public_key = os.environ.get('RECAPTCHA_PUBLIC_KEY')
-
+recaptcha_private_key_checkbox = os.environ.get('RECAPTCHA_PRIVATE_KEY_CHECKBOX')
+recaptcha_public_key_checkbox = os.environ.get('RECAPTCHA_PUBLIC_KEY_CHECKBOX')
+recaptcha_private_key_invisible = os.environ.get('RECAPTCHA_PRIVATE_KEY_INVISIBLE')
+recaptcha_public_key_invisible = os.environ.get('RECAPTCHA_PUBLIC_KEY_INVISIBLE')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -35,7 +36,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-8ri2^g-mdo64av_!+nfdyryteoqk1=gje15vilg=$6j&!^$3)g'
+SECRET_KEY = secret_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = debug
@@ -56,9 +57,11 @@ INSTALLED_APPS = [
     'akun',
     'feedback',
     'captcha',
+    'analytic',
 ]
 
 MIDDLEWARE = [
+    'analytic.middleware.AnalyticsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -190,5 +193,9 @@ AUTH_PASSWORD_VALIDATORS = []
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 SESSION_COOKIE_NAME = 'sesi_pengguna'
 
-RECAPTCHA_PUBLIC_KEY = recaptcha_public_key
-RECAPTCHA_PRIVATE_KEY = recaptcha_private_key
+# RECAPTCHA_PUBLIC_KEY_CHECKBOX = recaptcha_public_key_checkbox
+# RECAPTCHA_PRIVATE_KEY_CHECKBOX = recaptcha_private_key_checkbox
+RECAPTCHA_PUBLIC_KEY = recaptcha_public_key_invisible
+RECAPTCHA_PRIVATE_KEY = recaptcha_private_key_invisible
+
+# SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
