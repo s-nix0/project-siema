@@ -15,7 +15,7 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 1.3rem;
   color: #313131;
-  background-color: #c2c2c2;
+  background-color: #E8E6F2;
   box-sizing: border-box; /* Include padding and borders in the element's total width and height */
 }
 
@@ -136,7 +136,7 @@ input[type="submit"] {
   padding-left: 2rem;
   padding-right: 2rem;
   background-color: #3a60fb;
-  color: #d3d3d3;
+  color: #ebebeb;
   border: none;
   border-radius: 2.5rem;
   font-size: 1rem;
