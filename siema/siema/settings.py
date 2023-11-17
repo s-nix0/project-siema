@@ -23,6 +23,9 @@ db_password = os.environ.get('DBPASSWORD')
 db_host = os.environ.get('DBHOST')
 secret_key = os.environ.get('SECRET_KEY')
 debug = os.environ.get('DEBUG')
+recaptcha_private_key = os.environ.get('RECAPTCHA_PRIVATE_KEY')
+recaptcha_public_key = os.environ.get('RECAPTCHA_PUBLIC_KEY')
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -51,11 +54,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'siemablog',
     'akun',
+    'feedback',
+    'captcha',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    # "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -97,15 +101,15 @@ WSGI_APPLICATION = 'siema.wsgi.app'
 
 
 DATABASES = {
-  'default': {
-    'ENGINE': 'django.db.backends.postgresql',
-    'NAME': db_name,
-    'USER': db_user,
-    'PASSWORD': db_password,
-    'HOST': db_host,
-    'PORT': '5432',
-    'OPTIONS': {'sslmode': 'require'},
-  }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': db_name,
+        'USER': db_user,
+        'PASSWORD': db_password,
+        'HOST': db_host,
+        'PORT': '5432',
+        'OPTIONS': {'sslmode': 'require'},
+    }
 }
 
 
@@ -124,20 +128,20 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
+# AUTH_PASSWORD_VALIDATORS = [
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+#     },
+# ]
 
 
 # Internationalization
@@ -182,3 +186,9 @@ LOGOUT_REDIRECT_URL = '/akun/logout'
 MESSAGE_STORAGE = 'django.contrib.messages.storage.fallback.FallbackStorage'
 
 AUTH_PASSWORD_VALIDATORS = []
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_COOKIE_NAME = 'sesi_pengguna'
+
+RECAPTCHA_PUBLIC_KEY = recaptcha_public_key
+RECAPTCHA_PRIVATE_KEY = recaptcha_private_key

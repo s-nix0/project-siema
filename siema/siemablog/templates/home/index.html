@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>SIEMA</title>
+		{% load static %}
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" type="text/css" href="{% static 'home/css/styles.css' %}" />
+		<script
+			src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"
+			async
+		></script>
+		<script src="{% static 'home/js/scripts.js' %}" async></script>
+	</head>
+	<body>
+		<div class="preloader">
+			<div class="loader"></div>
+			<div class="loading-text">Sedang memuat...</div>
+		</div>
+		<div id="home-section" class="main-content">
+			<div class="home-container">
+				<div class="box h1 hidden">SIEMA</div>
+				<div class="box p1 hidden">
+					Selamat datang di SIEMA sebuah platform pembelajaran moral yang
+					dirancang khusus untuk mendukung perkembangan moral anak. Kami
+					menghadirkan beragam konten edukatif mengenai nilai-nilai moral, mulai
+					dari materi pembelajaran, komik inspiratif, hingga kuis yang menghibur
+					dan mendidik. Jelajahi dunia pendidikan moral bersama kami dan berikan
+					anak Anda pengalaman belajar yang tak hanya informatif, tetapi juga
+					menyenangkan.
+				</div>
+				<div class="box">
+					<div class="button-container">
+						<a class="box-button hidden" href="{% url 'login' %}">
+							<div class="p1">Coba Sekarang</div>
+							<box-icon name="right-arrow-alt" color="#eeeeee"></box-icon>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="services-section" class="main-content">
+			<div class="services-container">
+				<div class="service-title h2 hidden">Layanan Kami</div>
+				<a class="service-card hidden">
+					<div class="service-card-decs">
+						<div class="h3">Materi Edukatif</div>
+						<div class="p1">
+							Jelajahi dunia nilai-nilai moral melalui koleksi materi edukatif
+							kami yang dirancang khusus untuk menginspirasi dan mendidik
+							anak-anak. Selain itu anak juga akan merasakan pengalaman belajar
+							yang mendalam dan bermakna.
+						</div>
+					</div>
+					<img
+						src="{% static 'thumbnail/tb-materi.webp' %}"
+						height="100"
+						width="100"
+						alt=""
+					/>
+				</a>
+				<a class="service-card hidden">
+					<img
+					src="{% static 'thumbnail/tb-komik.webp' %}"
+						height="100"
+						width="100"
+						alt=""
+					/>
+					<div class="service-card-decs">
+						<div class="h3">komik Kreatif</div>
+						<div class="p1">
+							Dengan visual yang menghibur dan cerita yang penuh inspirasi,
+							komik kami menjadi pintu gerbang petualangan moral anak-anak.
+							Nikmati pengalaman belajar yang menyenangkan sambil memperoleh
+							wawasan tentang nilai-nilai kehidupan melalui dunia kreatif komik
+							kami.
+						</div>
+					</div>
+				</a>
+				<a class="service-card hidden">
+					<div class="service-card-decs">
+						<div class="h3">Kuis Interaktif</div>
+						<div class="p1">
+							Uji pemahaman moral anak melalui kuis yang menarik dan interaktif.
+							Kuis kami tidak hanya memberikan kesempatan untuk mengasah
+							pengetahuan, tetapi juga meningkatkan pemahaman mereka terhadap
+							prinsip-prinsip moral yang mendasar.
+						</div>
+					</div>
+					<img
+						src="{% static 'thumbnail/tb-kuis.webp' %}"
+						height="100"
+						width="100"
+						alt=""
+					/>
+				</a>
+			</div>
+		</div>
+
+		<div id="team-section" class="main-content">
+			<div class="team-container">
+				<div class="team-box h2 hidden">Tim Kreatif Kami</div>
+				<div class="team-box p1">
+					<p class="hidden">
+						Dibalik layar platform kami, terdapat tim yang penuh semangat dan
+						keahlian, bertujuan untuk memberikan pengalaman belajar moral
+						terbaik. Setiap anggota tim kami membawa kontribusi unik mereka,
+						membentuk fondasi yang kokoh untuk perkembangan nilai-nilai moral
+						anak-anak.
+					</p>
+
+					<ul>
+						<li class="hidden">
+							<strong>Dosen Pembimbing:</strong>
+							<p>
+								Pilar utama dalam pengembangan platform ini. Dosen pembimbing
+								kami menghadirkan keahlian akademis untuk memastikan bahwa
+								setiap aspek platform didasarkan pada prinsip-prinsip moral dan
+								pedagogi yang kuat.
+							</p>
+						</li>
+						<li class="hidden">
+							<strong>Programmers:</strong>
+							<p>
+								Tim pengembang berbakat kami, yang membangun fondasi teknologi
+								platform ini dengan keahlian dan inovasi. Dia menghadirkan
+								pengalaman digital yang mulus dan nyaman bagi pengguna.
+							</p>
+						</li>
+						<li class="hidden">
+							<strong>Penyusun Materi:</strong>
+							<p>
+								Ahli kami dalam merinci dan menyajikan materi edukatif yang
+								mendalam. Dengan dedikasi untuk menghadirkan konten bermakna,
+								dia membimbing anak-anak melalui perjalanan nilai-nilai moral.
+							</p>
+						</li>
+						<li class="hidden">
+							<strong>Pembuat Komik:</strong>
+							<p>
+								Kreativitas bertemu moralitas dalam tangan para pembuat komik
+								kami. Mereka membawa kisah-kisah inspiratif ke dalam dunia
+								visual, memastikan pembelajaran tidak hanya informatif tetapi
+								juga menghibur.
+							</p>
+						</li>
+						<li class="hidden">
+							<strong>Pembuat Kuis:</strong>
+							<p>
+								Tim kuis kami menciptakan tantangan yang menarik dan interaktif.
+								Dengan pendekatan yang menyenangkan, dia mengukur pemahaman
+								moral anak-anak dan merangsang pertumbuhan pengetahuan mereka.
+							</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div id="thankyou-section" class="main-content">
+			<div class="thankyou-container">
+				<div class="box h2 hidden">Terima Kasih</div>
+				<div class="box p1 hidden">
+					<i
+						>"Di kebun nilai-nilai moral, kami bukan hanya petani, tapi juga
+						penyiram mimpi-mimpi luhur. Mari kita bersama-sama menanam benih
+						karakter, membiarkan mereka tumbuh menjadi pohon-pohon kebijaksanaan
+						yang teguh. Sebab, dalam setiap tetes air penyiraman, terdapat
+						keajaiban yang mengubah dunia pada waktunya."</i
+					>
+				</div>
+				<div class="box p1 hidden">
+					Jika Anda memiliki pertanyaan, saran, atau sekadar ingin berbagi
+					cerita, tim kami senang mendengarnya! Klik tombol di bawah untuk
+					menghubungi kami.
+				</div>
+				<div class="box">
+					<div class="button-container hidden">
+						<a class="box-button" href="{% url 'feedback_form' %}">
+							<div class="p1">Hubungi Kami</div>
+							<box-icon name="right-arrow-alt" color="#eeeeee"></box-icon>
+						</a>
+					</div>
+				</div>
+				<div class="box p1-c hidden">
+					<i
+						>Seiring petir melintas di langit, kita bertemu di kilatan
+						kesempatan yang lain.</i
+					>
+				</div>
+				<div class="box p1-c hidden">
+					© SIEMA 2023. Seluruh hak cipta dilindungi.
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

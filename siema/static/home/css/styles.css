@@ -1,0 +1,301 @@
+* {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-user-drag: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+body {
+	margin: 0 auto;
+	padding: 0;
+	font-family: 'Poppins', sans-serif;
+	font-size: 1rem;
+	font-weight: 400;
+	color: #3B3B3B;
+	/* max-width: 37.5rem; */
+	overflow: hidden;
+	overflow-y: auto;
+	width: 100vw;
+	height: 100vh;
+	background-color: gray;
+	scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+	width: 0.75rem;
+}
+
+body::-webkit-scrollbar-thumb {
+	background-color: #3a5eeb; /* Warna thumb (bagian yang dapat digerakkan) */
+}
+
+body::-webkit-scrollbar-track {
+	background-color: #ffffff; /* Warna track (bagian yang tidak dapat digerakkan) */
+}
+
+/* Preloader Styles */
+.preloader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+	backdrop-filter: blur(10rem);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	transition: opacity 0.5s ease; /* Add transition for opacity */
+	z-index: 999;
+}
+
+/* Hide the preloader by setting opacity to 0 */
+.preloader.hidden {
+	opacity: 0;
+	pointer-events: none; /* Prevent interaction while hidden */
+}
+
+.loading-text {
+	text-align: center;
+	font-weight: bold;
+	margin: 1rem;
+}
+
+.loader {
+	border: 8px solid #9ecdff;
+	border-top: 8px solid #007bff;
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+	animation: spin 2s ease infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, border-radius 0.2s ease-in-out;
+}
+
+a:hover {
+	transform: scale(1.02);
+}
+
+a:active {
+	transform: scale(0.97); /* Menyesuaikan transformasi sesuai keinginan Anda */
+	/* background-color: #aaaaaa; */
+	/* border-radius: 20rem; */
+}
+
+@media (max-width: 768px) {
+    /* Styles for smaller screens */
+    /* Adjust layout as needed */
+}
+
+.h1 {
+	font-weight: 500;
+	font-size: 3.5rem;
+	text-align: center;
+}
+
+.h2 {
+	font-weight: 400;
+	font-size: 2.25rem;
+	text-align: center;
+}
+
+.h3 {
+	font-weight: 400;
+	font-size: 2rem;
+	text-align: center;
+}
+
+.p1 {
+	font-size: 1.15rem;
+	font-weight: 400;
+	text-align: justify;
+}
+
+.p1-c {
+	font-size: 1rem;
+	font-weight: 400;
+	text-align: center;
+}
+
+@media (max-width: 768px) {
+	.p1 {
+		font-size: 1rem;
+	}
+}
+
+.main-content {
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	scroll-snap-type: y proximity;
+	overflow-y: auto;
+}
+
+.home-container {
+	display: flex;
+	flex-direction: column;
+	padding: 2rem 0;
+	background-color: #E8E6F2;
+}
+
+.box {
+	margin: auto;
+	max-width: 65rem;
+	padding: 1.5rem;
+}
+
+.button-container {
+	display: flex;
+	justify-content: center;
+	margin: 1rem 0 2rem;
+}
+
+.box-button {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem 4rem;
+	border-radius: 0.5rem;
+	color: #eeeeee;
+	background-color: #4b56ee;
+}
+
+.box-button div {
+	margin-right: 1rem;
+}
+
+.services-container {
+	display: flex;
+	flex-direction: column;
+	padding: 2rem 0;
+	background-color: #CFD8FF;
+}
+
+.service-title {
+	margin: 2rem 0 4rem;
+}
+
+.service-card {
+	margin: auto;
+	height: 100%;
+	max-width: 60rem;
+	padding: 2.5rem;
+	margin-bottom: 2rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	background-color: #ECE8FA;
+	border-radius: 2rem;
+}
+
+.service-card-decs {
+	padding: 4rem;
+	box-sizing: border-box; /* Include padding in total width */
+}
+
+.service-card-decs div {
+	margin-bottom: 1rem;
+}
+
+.service-card-decs div:last-child {
+	margin-bottom: 0;
+}
+
+.service-card img {
+	height: 80%;
+	width: 80%;
+	border-radius: 2rem;
+}
+
+@media (max-width: 768px) {
+	.service-card {
+		flex-direction: column;
+		padding: 1rem;
+	}
+
+	.service-card-decs {
+		padding: 0.5rem;
+	}
+
+	.service-card img {
+		height: 25%;
+		width: 25%;
+		border-radius: 2rem;
+		margin: 0.5rem;
+	}
+
+	/* Menggunakan flex order untuk mengatur urutan elemen */
+	.service-card-decs {
+		order: 2; /* Urutan ke-2 pada tampilan mobile */
+	}
+
+	.service-card img {
+		order: 1; /* Urutan ke-1 pada tampilan mobile */
+	}
+}
+
+@media (max-width: 550px) {
+	.service-card img {
+		height: 45%;
+		width: 45%;
+		border-radius: 2rem;
+		margin: 0.5rem;
+	}
+}
+
+.team-container {
+	padding: 2rem 0;
+	background-color: #E8E6F2;
+}
+
+.team-box {
+	margin: auto;
+	max-width: 60rem;
+	padding: 1.5rem;
+}
+
+.thankyou-container {
+	display: flex;
+	flex-direction: column;
+	padding: 2rem 0;
+	background-color: #303030;
+	color: #cfcfcf;
+}
+
+.thankyou-container .box .button-container .box-button {
+	background-color: #363da1;
+}
+
+.hidden {
+	opacity: 0;
+	filter: blur(2px);
+	transition: all 0.5s ease-in-out;
+}
+
+.show {
+	opacity: 1;
+	filter: blur(0);
+}
+
+@media(prefers-reduced-motion) {
+	.hidden {
+		transition: none;
+	}
+}

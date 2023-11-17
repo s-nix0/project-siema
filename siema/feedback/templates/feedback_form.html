@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umpan Balik</title>
+    {% load static %}
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100;9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900;9..40,1000&display=swap"
+        rel="stylesheet"
+        type="text/css"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static 'feedback/styles.css' %}">
+    <script src="{% static 'feedback/scripts.js' %}" async></script>
+</head>
+<body>
+    <div class="preloader">
+        <div class="loader"></div>
+        <div class="loading-text">Sedang Memuat ...</div>
+    </div>
+    <div class="container">
+        <h2>Kirim Pesan</h2>
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Kirim</button>
+        </form>
+    </div>
+    <!-- Tambahkan kode untuk menampilkan modal atau pesan flash di sini -->
+    {% if messages %}
+        {% for message in messages%}
+        <div id="feedback-modal" class="modal">
+            <div class="modal-content">
+                <p>{{ message }}</p>
+                <span class="close">&times;</span>
+            </div>
+        </div>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

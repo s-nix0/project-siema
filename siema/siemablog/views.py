@@ -43,7 +43,11 @@ from itertools import chain
 
 
 class HomeView(TemplateView):
-    template_name = 'test.html'
+    template_name = 'home/index.html'
+
+
+# class AboutView(TemplateView):
+#     template_name = 'tentang/index.html'
 
 
 class SearchView(View):

@@ -7,8 +7,8 @@ from .views import HomeView, DashboardView, SearchView, ArticleListVew, ArticleD
     MaterialDetailView, ComicListVew, ComicDetailView, QuizListVew, QuizDetailView, ToS, PrivacyPolicy
 
 urlpatterns = [
-    # path('', views.home, name="home"),
     path('', HomeView.as_view(), name="home"),
+    # path('about/', AboutView.as_view(), name="about"),
     path('dashboard/', DashboardView.as_view(), name='dashboard'),
     path('cari/', SearchView.as_view(), name='search'),
     path('artikel/', ArticleListVew.as_view(), name='article-list'),
@@ -21,5 +21,4 @@ urlpatterns = [
     path('kuis/<int:level>', login_required(QuizDetailView.as_view()), name='quiz-detail'),
     path('ketentuan-layanan/', ToS.as_view(), name='tos'),
     path('kebijakan-privasi/', PrivacyPolicy.as_view(), name='privacy-policy'),
-    # path('update-user-activity/', update_user_activity, name='update-user-activity'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
