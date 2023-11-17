@@ -22,7 +22,7 @@ db_user = os.environ.get('DBUSER')
 db_password = os.environ.get('DBPASSWORD')
 db_host = os.environ.get('DBHOST')
 secret_key = os.environ.get('SECRET_KEY')
-debug = os.environ.get('DEBUG')
+debug = os.environ.get('DEBUG', False) == 'True'
 recaptcha_private_key = os.environ.get('RECAPTCHA_PRIVATE_KEY')
 recaptcha_public_key = os.environ.get('RECAPTCHA_PUBLIC_KEY')
 
