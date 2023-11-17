@@ -1,6 +1,6 @@
 from django.views.generic import ListView, DetailView, TemplateView
 from .models import Post, Material, Comic, Quiz, UserActivity
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.views import View
@@ -40,6 +40,10 @@ from itertools import chain
 #     # Manually handle the case where the user is not authenticated
 #     def auth_required(request):
 #         return HttpResponseForbidden('Authentication required')
+
+
+def not_found_page(request, exception):
+    return redirect('home')
 
 
 class HomeView(TemplateView):

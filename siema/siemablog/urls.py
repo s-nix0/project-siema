@@ -3,7 +3,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.views import serve
 from django.contrib.auth.decorators import login_required
-from .views import HomeView, DashboardView, SearchView, ArticleListVew, ArticleDetailView, MaterialListVew, \
+from .views import not_found_page, HomeView, DashboardView, SearchView, ArticleListVew, ArticleDetailView, MaterialListVew, \
     MaterialDetailView, ComicListVew, ComicDetailView, QuizListVew, QuizDetailView, ToS, PrivacyPolicy
 
 urlpatterns = [
@@ -22,3 +22,5 @@ urlpatterns = [
     path('ketentuan-layanan/', ToS.as_view(), name='tos'),
     path('kebijakan-privasi/', PrivacyPolicy.as_view(), name='privacy-policy'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+handler404 = not_found_page
