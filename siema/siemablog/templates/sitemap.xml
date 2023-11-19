@@ -1,12 +1,36 @@
-<!-- templates/sitemap.xml -->
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    {% for url in urls %}
-        <url>
-            <loc>{{ url.loc }}</loc>
-            <lastmod>{{ url.lastmod }}</lastmod>
-            <changefreq>{{ url.changefreq }}</changefreq>
-            <priority>{{ url.priority }}</priority>
-        </url>
-    {% endfor %}
+
+  <!-- Root URL -->
+  <url>
+    <loc>/</loc>
+    <lastmod>2023-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Dashboard URL -->
+  <url>
+    <loc>/dashboard</loc>
+    <lastmod>2023-01-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Kontak URL -->
+  <url>
+    <loc>/kontak</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Login URL -->
+  <url>
+    <loc>/akun/login</loc>
+    <lastmod>2023-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
