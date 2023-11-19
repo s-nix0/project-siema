@@ -34,3 +34,5 @@ urlpatterns = [
     path('kontak/', include('feedback.urls')),
     path('favicon.ico', RedirectView.as_view(url=settings.STATIC_URL + 'favicon.ico', permanent=True)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+handler404 = 'siemablog.views.handling_404'

@@ -5,6 +5,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.views import View
 from django.db.models import Q
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from .forms import SearchForm
 from itertools import chain
 
@@ -42,8 +44,8 @@ from itertools import chain
 #         return HttpResponseForbidden('Authentication required')
 
 
-def not_found_page(request, exception):
-    return redirect('home')
+def handling_404(request, exception):
+    return redirect('login')
 
 
 class HomeView(TemplateView):
@@ -158,6 +160,12 @@ class ArticleDetailView(DetailView):
     template_name = 'article_details.html'
 
 
+def is_valid_level(model, level):
+    # Implement your validation logic here
+    # For example, check if the level exists in your database
+    return model.objects.filter(level=level).exists()
+
+
 class MaterialListVew(ListView):
     model = Material
     template_name = 'materi/index.html'
@@ -170,22 +178,33 @@ class MaterialDetailView(DetailView):
 
     def get_object(self, queryset=None):
         level = self.kwargs['level']
+
+        # Check if the provided level is valid
+        if not is_valid_level(self.model, level):
+            # Redirect to the main directory
+            return HttpResponseRedirect(reverse('material-list'))
+
         return get_object_or_404(Material, level=level)
 
     def get(self, request, *args, **kwargs):
+        level = self.kwargs['level']
         queryset = Material.objects.all().order_by('level')
         self.object = self.get_object(queryset=queryset)
 
-        # Log user activity
-        UserActivity.objects.create(
-            user=self.request.user,
-            activity_title=self.object.title,
-            activity_type=self.object.type,
-            activity_level=self.object.level
-        )
+        if is_valid_level(self.model, level):
+            # Log user activity
+            UserActivity.objects.create(
+                user=self.request.user,
+                activity_title=self.object.title,
+                activity_type=self.object.type,
+                activity_level=self.object.level
+            )
 
-        context = self.get_context_data(object=self.object)
-        return self.render_to_response(context)
+            context = self.get_context_data(object=self.object)
+            return self.render_to_response(context)
+
+        else:
+            return HttpResponseRedirect(reverse('material-list'))
 
 
 class ComicListVew(ListView):
@@ -200,22 +219,33 @@ class ComicDetailView(DetailView):
 
     def get_object(self, queryset=None):
         level = self.kwargs['level']
+
+        # Check if the provided level is valid
+        if not is_valid_level(self.model, level):
+            # Redirect to the main directory
+            return HttpResponseRedirect(reverse('comic-list'))
+
         return get_object_or_404(Comic, level=level)
 
     def get(self, request, *args, **kwargs):
-        queryset = Material.objects.all().order_by('level')
+        level = self.kwargs['level']
+        queryset = Comic.objects.all().order_by('level')
         self.object = self.get_object(queryset=queryset)
 
-        # Log user activity
-        UserActivity.objects.create(
-            user=self.request.user,
-            activity_title=self.object.title,
-            activity_type=self.object.type,
-            activity_level=self.object.level
-        )
+        if is_valid_level(self.model, level):
+            # Log user activity
+            UserActivity.objects.create(
+                user=self.request.user,
+                activity_title=self.object.title,
+                activity_type=self.object.type,
+                activity_level=self.object.level
+            )
 
-        context = self.get_context_data(object=self.object)
-        return self.render_to_response(context)
+            context = self.get_context_data(object=self.object)
+            return self.render_to_response(context)
+
+        else:
+            return HttpResponseRedirect(reverse('comic-list'))
 
 
 class QuizListVew(ListView):
@@ -230,23 +260,33 @@ class QuizDetailView(DetailView):
 
     def get_object(self, queryset=None):
         level = self.kwargs['level']
+
+        # Check if the provided level is valid
+        if not is_valid_level(self.model, level):
+            # Redirect to the main directory
+            return HttpResponseRedirect(reverse('quiz-list'))
+
         return get_object_or_404(Quiz, level=level)
 
     def get(self, request, *args, **kwargs):
-        queryset = Material.objects.all().order_by('level')
+        level = self.kwargs['level']
+        queryset = Quiz.objects.all().order_by('level')
         self.object = self.get_object(queryset=queryset)
-        # self.object = self.get_object()
 
-        # Log user activity
-        UserActivity.objects.create(
-            user=self.request.user,
-            activity_title=self.object.title,
-            activity_type=self.object.type,
-            activity_level=self.object.level
-        )
+        if is_valid_level(self.model, level):
+            # Log user activity
+            UserActivity.objects.create(
+                user=self.request.user,
+                activity_title=self.object.title,
+                activity_type=self.object.type,
+                activity_level=self.object.level
+            )
 
-        context = self.get_context_data(object=self.object)
-        return self.render_to_response(context)
+            context = self.get_context_data(object=self.object)
+            return self.render_to_response(context)
+
+        else:
+            return HttpResponseRedirect(reverse('quiz-list'))
 
 
 class ToS(TemplateView):
