@@ -3,7 +3,7 @@
 
   <!-- Root URL -->
   <url>
-    <loc>/</loc>
+    <loc>https://project-siema.vercel.app/</loc>
     <lastmod>2023-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
@@ -11,7 +11,7 @@
 
   <!-- Dashboard URL -->
   <url>
-    <loc>/dashboard</loc>
+    <loc>https://project-siema.vercel.app/dashboard</loc>
     <lastmod>2023-01-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -19,7 +19,7 @@
 
   <!-- Kontak URL -->
   <url>
-    <loc>/kontak</loc>
+    <loc>https://project-siema.vercel.app/kontak</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -27,7 +27,7 @@
 
   <!-- Login URL -->
   <url>
-    <loc>/akun/login</loc>
+    <loc>https://project-siema.vercel.app/akun/login</loc>
     <lastmod>2023-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
