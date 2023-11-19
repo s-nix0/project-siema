@@ -8,27 +8,27 @@
 
 
 <url>
-  <loc>https://project-siema.vercel.app/</loc>
+  <loc></loc>
   <lastmod>2023-11-19T12:39:59+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://project-siema.vercel.app/akun/login/</loc>
+  <loc>akun/login/</loc>
   <lastmod>2023-11-19T12:39:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://project-siema.vercel.app/kontak/</loc>
+  <loc>kontak/</loc>
   <lastmod>2023-11-19T12:39:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://project-siema.vercel.app/ketentuan-layanan/</loc>
+  <loc>ketentuan-layanan/</loc>
   <lastmod>2023-11-19T12:39:59+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://project-siema.vercel.app/kebijakan-privasi/</loc>
+  <loc>kebijakan-privasi/</loc>
   <lastmod>2023-11-19T12:39:59+00:00</lastmod>
   <priority>0.64</priority>
 </url>
