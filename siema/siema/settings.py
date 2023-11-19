@@ -57,8 +57,8 @@ INSTALLED_APPS = [
     'siemablog',
     'akun',
     'feedback',
-    'captcha',
     'analytic',
+    'captcha',
 ]
 
 MIDDLEWARE = [

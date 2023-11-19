@@ -11,12 +11,15 @@ from .forms import LoginForm
 
 def create_temporary_user(username, password):
     # Create a temporary user with a unique username
-    user = User.objects.create_user(username=username, password=password, first_name=username, is_staff=False, is_active=True)
+    user = User.objects.create_user(username=username, password=password, first_name=username, is_staff=False,
+                                    is_active=True)
     return user
 
-def is_temporary_user(user):
-    # Check if the user is temporary based on the date_joined field
-    return (timezone.now() - user.date_joined) < timedelta(days=7)
+
+# def is_temporary_user(user):
+#     # Check if the user is temporary based on the last_login field
+#     return (timezone.now() - user.date_joined) < timedelta(days=7)
+
 
 def login_user(request):
     if request.user.is_authenticated:
@@ -37,18 +40,28 @@ def login_user(request):
             user = authenticate(request, username=username, password=password)
 
             if user is not None:
-                if is_temporary_user(user):
-                    # User is temporary
-                    login(request, user)
-                    return redirect("dashboard")
-                else:
-                    # User is not temporary
-                    login(request, user)
-                    return redirect("dashboard")
+                # if is_temporary_user(user):
+                #     # User is temporary
+                #     login(request, user)
+                #     return redirect("dashboard")
+                login(request, user)
+                return redirect("dashboard")
             else:
+                # Check if the username already exists
+                if User.objects.filter(username=username).exists():
+                    message = "Nama Pengguna atau Kata Sandi salah, silakan coba lagi."
+                    messages.error(request, message)
+                    return redirect("login")
+
+                # If username does not exist, create temporary user
                 temporary_user = create_temporary_user(username, password)
                 login(request, temporary_user)
                 return redirect("dashboard")
+        else:
+            # Form tidak valid, mungkin karena password tidak cocok
+            message = "Terjadi kesalah pada saat pengiriman form, silakan coba lagi."
+            messages.error(request, message)
+            return redirect("login")
     else:
         form = LoginForm()
 
