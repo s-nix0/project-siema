@@ -9,3 +9,12 @@ class SitemapView(TemplateView):
         response = super().render_to_response(context, **response_kwargs)
         response['Content-Type'] = 'application/xml'
         return response
+
+
+class RobotsView(TemplateView):
+    template_name = 'robots.txt'
+
+    def render_to_response(self, context, **response_kwargs):
+        response = super().render_to_response(context, **response_kwargs)
+        response['Content-Type'] = 'text/plain'
+        return response

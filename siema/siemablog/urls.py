@@ -6,10 +6,11 @@ from django.contrib.staticfiles.views import serve
 from django.contrib.auth.decorators import login_required
 from .views import HomeView, DashboardView, SearchView, ArticleListVew, ArticleDetailView, MaterialListVew, \
     MaterialDetailView, ComicListVew, ComicDetailView, QuizListVew, QuizDetailView, ToS, PrivacyPolicy
-from .sitemaps import SitemapView
+from .sitemaps import SitemapView, RobotsView
 
 urlpatterns = [
     path('sitemap.xml', SitemapView.as_view(), name='sitemap'),
+    path('robots.txt', RobotsView.as_view(), name='robots'),
     path('', HomeView.as_view(), name="home"),
     # path('about/', AboutView.as_view(), name="about"),
     path('dashboard/', DashboardView.as_view(), name='dashboard'),
