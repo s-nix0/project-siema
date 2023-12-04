@@ -161,12 +161,12 @@ DATABASES = {
 # LANGUAGE_CODE = 'en-us'
 # TIME_ZONE = 'UTC'
 # USE_I18N = True
-# USE_TZ = True
 
+USE_TZ = True
 USE_I18N = True
 USE_L10N = True
 LANGUAGE_CODE = 'id'
-TIME_ZONE = 'Asia/Singapore'
+TIME_ZONE = 'Asia/Shanghai'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
