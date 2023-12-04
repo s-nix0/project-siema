@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Mode Pemeliharaan</title>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap"
+		/>
+		<style>
+			body {
+				font-family: "DM Sans", sans-serif;
+				background-color: #f4f4f4;
+				color: #333;
+				margin: 1rem;
+				padding: 0;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				height: 100vh;
+			}
+
+			h1 {
+				font-size: 2em;
+				text-align: center;
+			}
+
+			p {
+				font-size: 1.2em;
+				text-align: center;
+			}
+
+			#countdown {
+				font-size: 1.5em;
+				text-align: center;
+			}
+		</style>
+		<script>
+			let remainingTime = {{ remaining_time|default:0 }};  // Inisialisasi sisa waktu
+			let countdownInterval;  // Simpan ID interval
+
+			function updateCountdown() {
+			    if (remainingTime > 0) {
+			        remainingTime--;  // Kurangi sisa waktu
+
+			        const days = Math.floor(remainingTime / (24 * 60 * 60));
+			        const hours = Math.floor((remainingTime % (24 * 60 * 60)) / (60 * 60));
+			        const minutes = Math.floor((remainingTime % (60 * 60)) / 60);
+			        const seconds = remainingTime % 60;
+
+			        document.getElementById('countdown').innerHTML =
+			            `${days} hari, ${hours} jam, ${minutes} menit, ${seconds} detik`;
+			    } else {
+			        // Bersihkan interval sebelum me-refresh halaman
+			        clearInterval(countdownInterval);
+
+			        document.getElementById('countdown').innerHTML =
+			            `Periode pemeliharaan telah berakhir. Terima kasih atas kesabarannya.`;
+
+			        // Me-refresh halaman setelah 2 detik saat hitung mundur mencapai nol
+			        setTimeout(() => location.reload(true), 2000);
+			    }
+			}
+
+			// Perbarui hitung mundur setiap detik
+			countdownInterval = setInterval(updateCountdown, 1000);
+
+			// Pembaruan awal
+			window.onload = updateCountdown;
+		</script>
+	</head>
+	<body>
+		<h1>Mohon maaf, SIEMA saat ini sedang dalam mode pemeliharaan.</h1>
+		{% if end_time %} {% if remaining_time %}
+        <p>Situs akan dibuka kembali pada saat pameran tanggal 6 Desember 2023 Pukul 07.00 GMT+8.</p>
+		<p id="countdown"></p>
+		{% else %}
+		<p>Periode pemeliharaan telah berakhir. Terima kasih atas kesabarannya.</p>
+		{% endif %} {% endif %}
+	</body>
+</html>

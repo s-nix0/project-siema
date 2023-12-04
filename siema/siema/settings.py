@@ -29,6 +29,12 @@ recaptcha_public_key_checkbox = os.environ.get('RECAPTCHA_PUBLIC_KEY_CHECKBOX')
 recaptcha_private_key_invisible = os.environ.get('RECAPTCHA_PRIVATE_KEY_INVISIBLE')
 recaptcha_public_key_invisible = os.environ.get('RECAPTCHA_PUBLIC_KEY_INVISIBLE')
 
+MAINTENANCE_MODE = os.environ.get('MAINTENANCE_MODE')
+MAINTENANCE_END_TIME = os.environ.get('MAINTENANCE_END_TIME')
+
+# MAINTENANCE_MODE = False
+# MAINTENANCE_END_TIME = None  # Format: 'YYYY-MM-DD HH:MM:SS'
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -62,6 +68,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'siemablog.middleware.maintenance_middleware.MaintenanceMiddleware',
     'analytic.middleware.AnalyticsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
