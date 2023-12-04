@@ -13,7 +13,7 @@ class MaintenanceMiddleware:
         maintenance_mode, end_time = self.get_maintenance_info()
 
         if maintenance_mode and not request.path_info.startswith('/admin/'):
-            if self.is_whitin_maintenance_window(end_time):
+            if self.is_within_maintenance_window(end_time):
                 remaining_time = self.calculate_remaining_time(end_time)
                 return self.render_maintenance_page(end_time, remaining_time)
 
@@ -38,9 +38,10 @@ class MaintenanceMiddleware:
     #     seconds = seconds % 60
     #     return f"{days} days, {hours} hours, {minutes} minutes, {seconds} seconds"
 
-    def is_whitin_maintenance_window(self, end_time):
+    def is_within_maintenance_window(self, end_time):
         if end_time:
-            return timezone.now() <= end_time
+            now = timezone.now()
+            return now <= end_time
         return False
 
     def get_maintenance_info(self):
