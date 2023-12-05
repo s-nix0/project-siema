@@ -1,5 +1,13 @@
-# views.py
 from django.views.generic import TemplateView
+
+
+class GoogleVerifyView(TemplateView):
+    template_name = 'googleea42fa73b7b371df.html'
+
+    def render_to_response(self, context, **response_kwargs):
+        response = super().render_to_response(context, **response_kwargs)
+        response['Content-Type'] = 'text/html'
+        return response
 
 
 class SitemapView(TemplateView):
