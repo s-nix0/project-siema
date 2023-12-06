@@ -5,7 +5,7 @@ from django.views.generic import RedirectView
 from django.contrib.staticfiles.views import serve
 from django.contrib.auth.decorators import login_required
 from .views import HomeView, DashboardView, SearchView, ArticleListVew, ArticleDetailView, MaterialListVew, \
-    MaterialDetailView, ComicListVew, ComicDetailView, QuizListVew, QuizDetailView, ToS, PrivacyPolicy
+    MaterialDetailView, ComicListVew, ComicDetailView, QuizListVew, QuizDetailView, ToS, PrivacyPolicy, AboutView, GuideView
 from .sitemainpath import SitemapView, RobotsView, GoogleVerifyView
 
 urlpatterns = [
@@ -13,7 +13,8 @@ urlpatterns = [
     path('sitemap.xml', SitemapView.as_view(), name='sitemap'),
     path('robots.txt', RobotsView.as_view(), name='robots'),
     path('', HomeView.as_view(), name="home"),
-    # path('about/', AboutView.as_view(), name="about"),
+    path('tentang/', AboutView.as_view(), name="about"),
+    path('panduan/', GuideView.as_view(), name="guide"),
     path('dashboard/', DashboardView.as_view(), name='dashboard'),
     path('cari/', SearchView.as_view(), name='search'),
     # path('artikel/', ArticleListVew.as_view(), name='article-list'),

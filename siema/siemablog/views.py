@@ -52,8 +52,12 @@ class HomeView(TemplateView):
     template_name = 'home/index.html'
 
 
-# class AboutView(TemplateView):
-#     template_name = 'tentang/index.html'
+class AboutView(TemplateView):
+    template_name = 'tentang/index.html'
+
+
+class GuideView(TemplateView):
+    template_name = 'panduan/index.html'
 
 
 class SearchView(View):

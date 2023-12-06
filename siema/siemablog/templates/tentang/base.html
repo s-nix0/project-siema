@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}{% endblock %}</title>
+    <title>Tentang SIEMA</title>
     {% load static %}
     </style>
     {% block custom_css %}{% endblock %}
-    <link rel="stylesheet" href="{% static 'komik/list/css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'tentang/css/styles.css' %}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -25,19 +25,16 @@
       <div class="loading-text">Sedang Memuat ...</div>
     </div>
     <header>
-      <a href="{% url 'comic-list' %}" class="back-button h3">Kembali</a>
-      <div class="title he1">Komik SIEMA</div>
+      <a href="{% url 'dashboard' %}" class="back-button h3">Kembali</a>
+      <div class="title he1">Tentang SIEMA</div>
       <div class="back-button h3" style="visibility: hidden;">Kembali</div>
     </header>
     <br />
     <div class="main-content">
-      {% block content %}
-      {% endblock %}
-    </div>
-    <div class="botnav">
-      <a href="{% url 'comic-detail' comic.level|add:'-1' %}" class="back-button h3">Sebelumnya</a>
-      <div class="title he1">Komik</div>
-      <a href="{% url 'comic-detail' comic.level|add:'+1' %}" class="next-button h3">Selanjutnya</a>
+      <img class="post-image" src="{% static 'tentang/img/1.webp' %}" loading="lazy">
+      <img class="post-image" src="{% static 'tentang/img/2.webp' %}" loading="lazy">
+      <img class="post-image" src="{% static 'tentang/img/3.webp' %}" loading="lazy">
+      <img class="post-image" src="{% static 'tentang/img/4.webp' %}" loading="lazy">
     </div>
     <div class="footer">
       <a href="{% url 'dashboard' %}">
@@ -50,6 +47,6 @@
         <box-icon name="user" color="rgba(58, 94, 235, 255)"></box-icon>
       </a>
     </div>
-    <script src="{% static 'komik/js/scripts.js' %}"></script>
+    <script src="{% static 'tentang/js/scripts.js' %}"></script>
   </body>
 </html>
