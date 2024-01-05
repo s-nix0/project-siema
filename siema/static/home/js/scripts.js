@@ -34,13 +34,38 @@ const observer = new IntersectionObserver((entries) => {
 const hiddenElements = document.querySelectorAll(".hidden");
 hiddenElements.forEach((el) => observer.observe(el));
 
+function updatePerView() {
+	const windowWidth = window.innerWidth;
+
+	if (windowWidth < 600) {
+		// Adjust this threshold based on your design
+		perView = 1;
+	} else if (windowWidth < 1200) {
+		// Adjust this threshold based on your design
+		perView = 2;
+	} else {
+		perView = 3;
+	}
+	console.log("perView change to ", perView);
+
+	imageWrapper.style.setProperty("--per-view", perView);
+	for (let i = 0; i < perView; i++) {
+		imageWrapper.insertAdjacentHTML("beforeend", imageItems[i].outerHTML);
+	}
+}
 
 const imageWrapper = document.querySelector(".image-wrapper");
 const imageItems = document.querySelectorAll(".image-wrapper > *");
 const imageLength = imageItems.length;
-const perView = 3;
+let perView;
 let totalScroll = 0;
 const delay = 2000;
+
+// Initial call to set perView based on the current window size
+updatePerView();
+
+// Listen for window resize events
+window.addEventListener("resize", updatePerView);
 
 imageWrapper.style.setProperty("--per-view", perView);
 for (let i = 0; i < perView; i++) {
@@ -58,8 +83,47 @@ function scrolling() {
 		imageWrapper.style.left = "0";
 		autoScroll = setInterval(scrolling, delay);
 	}
+	const widthEl = document.querySelector(".image-wrapper > :first-child").offsetWidth + 24;
+	imageWrapper.style.left = `-${totalScroll * widthEl}px`;
+	imageWrapper.style.transition = ".3s";
+
+	// Update the image indicator
+	updateImageIndicator();
+}
+
+const imageIndicator = document.querySelector(".image-indicator");
+
+// Function to update the image indicator
+function updateImageIndicator() {
+	// Remove existing indicator circles
+	imageIndicator.innerHTML = "";
+
+	// Add a circle for each image
+	for (let i = 0; i < imageLength; i++) {
+		const circle = document.createElement("div");
+		circle.classList.add("indicator-circle");
+		circle.addEventListener("click", () => goToImage(i));
+		imageIndicator.appendChild(circle);
+	}
+
+	// Highlight the current image circle
+	const currentCircle = imageIndicator.children[totalScroll - 1];
+	if (currentCircle) {
+		currentCircle.classList.add("active");
+	}
+}
+
+// Initial call to set up the image indicator
+updateImageIndicator();
+
+// Function to handle manual navigation by clicking on the indicator circles
+function goToImage(index) {
+	clearInterval(autoScroll);
+	totalScroll = index + 1;
+	imageWrapper.style.transition = ".3s";
 	const widthEl =
 		document.querySelector(".image-wrapper > :first-child").offsetWidth + 24;
 	imageWrapper.style.left = `-${totalScroll * widthEl}px`;
-	imageWrapper.style.transition = ".3s";
+	updateImageIndicator();
+	autoScroll = setInterval(scrolling, delay);
 }
