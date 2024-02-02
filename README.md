@@ -12,7 +12,7 @@ SIEMA adalah sebuah platform untuk memberikan pendidikan moral kepada anak-anak 
 
 ## Fitur Utama
 - **Materi Edukatif**
-- **Kkomik Kreatif**
+- **Komik Kreatif**
 - **Kuis Interaktif**
 
 ## Penggunaan Non-Komersial
