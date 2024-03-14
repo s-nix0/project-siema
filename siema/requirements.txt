@@ -1,4 +1,4 @@
-Django==4.2.7
+Django==4.2.10
 psycopg2-binary==2.9.9
 python-dotenv==1.0.0
 django-recaptcha==3.0.0
